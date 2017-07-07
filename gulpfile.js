@@ -7,27 +7,27 @@ var size      = require('gulp-size'); // Stats and Things
 
 // compile all your Sass
 gulp.task('sass', function (){
-	gulp.src(['./*.scss', '!./_horizn-vars.scss'])
+	gulp.src(['*.scss', '!_horizn-vars.scss'])
 		.pipe(sass({ 
-			includePaths: ['./'], 
+			includePaths: ['dev/sass'], 
 			outputStyle: 'expanded' 
 		}))
 		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-		.pipe(gulp.dest('./css'))
+		.pipe(gulp.dest('css'))
 		.pipe(minifycss())
-		.pipe(gulp.dest('./css'));
+		.pipe(gulp.dest('css'));
 });
 
 // Stats and Things
 gulp.task('stats', function () {
-	gulp.src(['./**/*', '!./node_modules/**/*'])
+	gulp.src(['**/*', '!node_modules/**/*'])
 		.pipe(size())
 		.pipe(gulp.dest('.'));
 });
 
 // A watcher that runs tasks when any specified files are changed
 gulp.task('watch', function() {
-  	gulp.watch('./**/*.scss', ['sass','stats']);
+  	gulp.watch('**/*.scss', ['sass','stats']);
 });
 
 // The default task (called when you run `gulp` from cli)
