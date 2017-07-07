@@ -1,0 +1,27 @@
+{
+  "name": "horizn",
+  "version": "1.0.0",
+  "description": "###### A landscape focused framework for front-end web design.",
+  "main": "_horizn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjminchuk/horizn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjminchuk/horizn/issues"
+  },
+  "homepage": "https://github.com/rjminchuk/horizn#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0"
+  }
+}
