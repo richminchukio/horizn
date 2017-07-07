@@ -1,0 +1,68 @@
+// Base 
+@import 'variables';
+
+/* Helper styles */
+.horizn {
+    background-color: #333333;
+    color: #fff;
+}
+a:visited, a:active, a:link, a:hover {
+    color: #fff;
+}
+
+/* Horizn */
+.horizn
+{
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.horizn-west
+{
+    background-color: #aa00aa;
+    display: inline-block;
+    max-width: 200px;
+    width: 100%;
+}
+
+.horizn-list
+{
+    background-color: #00aaaa;
+    display: inline-block;
+    width: 100%;
+}
+
+.horizn-east
+{
+    background-color: #aaaa00;
+    display: inline-block;
+    width: 100%;
+}
+
+/* iphone 4/5 portrait */
+@media (orientation: portrait) and (max-width: 320px) {
+   .horizn {
+       flex-direction: column;
+   }
+    .horizn-east {
+        display: none;
+    }
+}
+
+/* iphone 5 landscape */
+@media (orientation: landscape) and (max-width: 568px) {
+    .horizn-east {
+        display: none;
+    }
+}
+
+/* iphone 4 landscape */
+@media (orientation: landscape) and (max-width: 568px) {
+    .horizn-east {
+        display: none;
+    }
+}

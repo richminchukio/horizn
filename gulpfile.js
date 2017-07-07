@@ -7,17 +7,20 @@ var size      = require('gulp-size'); // Stats and Things
 
 // compile all your Sass
 gulp.task('sass', function (){
-	gulp.src(['./_horizn.scss'])
+	gulp.src(['./*.scss', '!./_horizn-vars.scss'])
 		.pipe(sass({ 
 			includePaths: ['./'], 
 			outputStyle: 'expanded' 
 		}))
+		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+		.pipe(gulp.dest('./css'))
+		.pipe(minifycss())
 		.pipe(gulp.dest('./css'));
 });
 
 // Stats and Things
 gulp.task('stats', function () {
-	gulp.src('./**/*')
+	gulp.src(['./**/*', '!./node_modules/**/*'])
 		.pipe(size())
 		.pipe(gulp.dest('.'));
 });
