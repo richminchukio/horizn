@@ -7,9 +7,9 @@ var size      = require('gulp-size'); // Stats and Things
 
 // compile all your Sass
 gulp.task('sass', function (){
-	gulp.src(['**/*.scss', '!/_horizn-vars.scss'])
+	gulp.src(['**/_horizn.scss', '!node_modules/**/*', '!**/_horizn-vars.scss'])
 		.pipe(sass(
-			//{includePaths: ['dev/sass'], outputStyle: 'expanded' }
+			{includePaths: ['dev/sass'], outputStyle: 'expanded' }
 		))
 		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
 		.pipe(gulp.dest('css'))
