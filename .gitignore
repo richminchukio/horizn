@@ -1,1 +1,3 @@
-/node_modules/
+/src/wwwroot/*
+/src/obj
+/src/bin
