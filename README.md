@@ -52,4 +52,4 @@ That's a realy good question. What shows is only the most important content for 
 
 ###### A working example
 
-[richminchuk.io](richminchukio11win.azurewebsites.net) is the dev site for my personal bloging utility called [GHK](https://github.com/rjminchuk/ghk).
+[richminchuk.io](https://richminchukio11win.azurewebsites.net) is the dev site for my personal bloging utility called [GHK](https://github.com/rjminchuk/ghk).
