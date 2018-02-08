@@ -2,7 +2,7 @@
 
 ###### A landscape focused strategy for blogging. 
 
-Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. Showing your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [ghk](https://github.com/rjminchuk/ghk) an in the works blogging utility.
+Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. Showing your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [ghk](https://github.com/rjminchuk/ghk), an _in the works_ blogging utility.
 
 ###### Features
 
