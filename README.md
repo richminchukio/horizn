@@ -65,4 +65,4 @@ That's a realy good question. What shows is only the most important content for 
 
 # todo
 - fix `pack.md` with readable instructions.
-- ensure vscode commits with my actual github credentials..... one more try... once again. again..
+- ensure vscode commits with my actual github credentials..... one more try... once again. again.. again
