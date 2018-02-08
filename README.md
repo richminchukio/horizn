@@ -45,32 +45,18 @@ That's a realy good question. What shows is only the most important content for 
       <input type="checkbox" id="horizn-article-open">
       <div class="horizn-container">
          <div class='horizn-leadin'>
-         <!-- 
-            <h1>site name</h1> 
-         -->
+            <!-- <h1>site name</h1> -->
          </div>
          <div class='horizn-timeline'>
-         <!--
-            <label for="horizn-article-open">
-               <h3>2017.12.15</h3>
-            </label>
-            <p>Unit Testing on MacOS /&nbsp;Windows</p>
-            <label for="horizn-article-open">
-               <h3>2017.04.09</h3>
-            </label>
-            <p>Creating a dotnet core NuGet&nbsp;Package</p> 
-         -->
+            <!-- <label for="horizn-article-open"><h3>2017.12.15</h3></label>
+                 <p>Unit Testing on MacOS /&nbsp;Windows</p>
+                 <label for="horizn-article-open"><h3>2017.04.09</h3></label>
+                 <p>Creating a dotnet core NuGet&nbsp;Package</p> -->
          </div>
          <div class='horizn-sheet'>
-         <!--
-            <p id="horizn-close-article-btn">
-               <label for="horizn-article-open">close</label>
-            </p>
-            <h2>Article Title</h2>
-            <p>
-               Article body.
-            </p>
-         -->
+            <!-- <p><label for="horizn-article-open">close</label></p>
+                 <h2>Article Title</h2>
+                 <p>Article body.</p> -->
          </div>
       </div>
    </body>
