@@ -48,7 +48,7 @@ Horizn is less of a framework, and more of a strategy for handling different dev
 
 ###### But what shows and when?
 
-That's a realy good question. What shows is only the most important content for the scale and orientation of your device. There's about 16 different scenarios (devices sizes, orientations, and states) that have been coded for.
+That's a realy good question. What shows is only the most important content for the scale and orientation of your device. There's about 12 different scenarios (devices sizes, orientations, and states) that have been coded for.
 
 ###### A working example
 
