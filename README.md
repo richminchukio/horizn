@@ -76,3 +76,6 @@ That's a realy good question. What shows is only the most important content for 
    </body>
 </html>
 ```
+
+# todo
+- fix `pack.md` with readable instructions.
