@@ -1,14 +1,14 @@
 # Pack Horizn for NuGet 
 
-###### steps to add the dotnet bundler to a dotnet core project
+##### Configure a dotnet core app for bundling content
+
+Do this once when we create a project that requires content to be bundled with the nuget package.
 
 ```sh
 dotnet add package BuildBundlerMinifier
 ```
 
-###### configure your bundleconfig.json
-
-This file get's used when we call `dotnet build`
+Configure your `bundleconfig.json` file. This file get's used when we call `dotnet build`.
 
 ```js
 // bundleconfig.json
@@ -25,7 +25,7 @@ This file get's used when we call `dotnet build`
 }]
 ```
 
-###### Pack this src for release deployment
+##### Pack this src for release deployment
 
 ```sh
 cd src/
@@ -34,7 +34,7 @@ dotnet build -c release
 dotnet pack -c release
 ```
 
-###### Publishing the NuGet package
+##### Publishing the NuGet package
 
 ```sh
 cd src/bin/release
