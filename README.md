@@ -20,11 +20,11 @@ That's a realy good question. What shows is only the most important content for 
 
 |                    | *ARTICLE OPEN*                                     | *ARTICLE CLOSED*                         |
 |:------------------ |:-------------------------------------------------- |:---------------------------------------- |
-| *LANDSCAPE*        |                                                    |                                          |
+| **LANDSCAPE**      |                                                    |                                          |
 | Handheld / Mobile  | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
 | Medium / Tablet    | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
 | Large / Desktop    | 3 col(s): leadin, timeline, then Article           | 2 col(s): leadin next to timeline        |
-| *PORTRAIT*         |                                                    |                                          |
+| **PORTRAIT**       |                                                    |                                          |
 | Handheld / Mobile  | 1 col(s): Article only                             | 1 col(s): colapsed, leadin over timeline |
 | Medium / Tablet    | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
 | Large / Pro tablet | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
