@@ -1,6 +1,6 @@
 # Pack Horizn for NuGet 
 
-##### Configure a dotnet core app for bundling content
+### Configure a dotnet core app for bundling content
 
 Do this once when we create a project that requires content to be bundled with the nuget package.
 
@@ -25,7 +25,7 @@ Configure your `bundleconfig.json` file. This file get's used when we call `dotn
 }]
 ```
 
-##### Pack this src for release deployment
+### Pack this src for release deployment
 
 ```sh
 cd src/
@@ -34,7 +34,7 @@ dotnet build -c release
 dotnet pack -c release
 ```
 
-##### Publishing the NuGet package
+### Publishing the NuGet package
 
 ```sh
 cd src/bin/release
