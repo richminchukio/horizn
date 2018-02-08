@@ -65,4 +65,3 @@ That's a realy good question. What shows is only the most important content for 
 
 # todo
 - fix `pack.md` with readable instructions.
-- will my next commit be signed? `git config --global commit.gpgsign true` worked?
