@@ -6,12 +6,12 @@ Horizn's focus is to make the web's digital publication format more paletable to
 
 ###### Features, State, and Technical Deatils
 
-Horizn is less of a framework, and more of a strategy for handling different device types.  Since Horizn was developed with blogging in mind, it can represent two states, a visitor reading an article, or not reading an article. The underlying style system relies heavily on a hidden checkbox to determine the view the user will get back. This provides two states, checked: article open, and unchecked: article closed (For static pages, the checkbox can be defaulted to either state by setting the checked attribute on the input to checked.) Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte. _Horizn uses CSS Grid, making it a bad fit for legacy browser support._
+Horizn is less of a framework, and more of a strategy for handling different device types. Since Horizn was developed with blogging in mind, it can represent two states, a visitor reading an article, or not reading an article. The underlying style system relies heavily on a hidden checkbox to determine the view the user will get back. This provides two states, checked: article open, and unchecked: article closed (For static pages, the checkbox can be defaulted to either state) Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte.
 
 ###### The Moving Parts
 
 - `#horizn-article-open` | The checkbox input controlling article state
-- `.horizn-container` | A container required for css grid. This class can optionally be set on body element
+- `.horizn-container` | A container required for css grid
 - `.horizn-leadin` | A nice place for an author photo, the name of your blog, and maybe a link to your github
 - `.horizn-timeline` | The area for your blog feed
 - `.horizn-sheet` | The area your blog article goes
@@ -64,6 +64,10 @@ That's a realy good question. What shows is only the most important content for 
    </body>
 </html>
 ```
+
+###### When should I not use Horizn?
+
+Horizn uses CSS Grid, making it a bad fit for legacy browser support.
 
 # todo
 - fix `pack.md` with readable instructions.
