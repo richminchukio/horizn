@@ -2,21 +2,23 @@
 
 ###### A landscape focused strategy for blogging. 
 
-Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. Showing your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [ghk](https://github.com/rjminchuk/ghk), an _in the works_ blogging utility.
+Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. Showing your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).
 
-###### Features
+###### Features, State, and Technical Deatils
 
-Horizn is less of a framework, and more of a strategy for handling different device types. With the provided layout below, a visitor will see a number of different things based on their device and it's orientation. Since Horizn was developed with blogging in mind, it can represent two states, a visitor reading an article, or not reading an article. The underlying style system relies heavily on the state of a hidden checkbox to determine the view the user will get back. When the visitor is reading an article, the input is checked.
+Horizn is less of a framework, and more of a strategy for handling different device types.  Since Horizn was developed with blogging in mind, it can represent two states, a visitor reading an article, or not reading an article. The underlying style system relies heavily on a hidden checkbox to determine the view the user will get back. This provides two states, checked: article open, and unchecked: article closed (For static pages, the checkbox can be defaulted to either state by setting the checked attribute on the input to checked.) Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte. _Horizn uses CSS Grid, making it a bad fit for legacy browser support._
 
 ###### The Moving Parts
 
-- leadin | A nice place for an author photo, and the name of your blog
-- timeline | Where your blog feed goes
-- sheet | Where your blog article goes
+- `#horizn-article-open` | The checkbox input controlling article state
+- `.horizn-container` | A container required for css grid. This class can optionally be set on body element
+- `.horizn-leadin` | A nice place for an author photo, the name of your blog, and maybe a link to your github
+- `.horizn-timeline` | The area for your blog feed
+- `.horizn-sheet` | The area your blog article goes
 
 ###### But what shows and when?
 
-That's a realy good question. What shows is only the most important content for the scale and orientation of your device. There are 5 different scenarios that have been coded for (covering 12 posibile device sizes, orientations, and states).
+That's a realy good question. What shows is only the most important content for the scale and orientation of your device. There are 5 different scenarios covering 12 posibile device sizes, orientations, and states.
 
 |                    | *ARTICLE OPEN*                                     | *ARTICLE CLOSED*                         |
 |:------------------ |:-------------------------------------------------- |:---------------------------------------- |
@@ -31,7 +33,7 @@ That's a realy good question. What shows is only the most important content for 
 
 ###### A working example
 
-[richminchuk.io](https://richminchukio11win.azurewebsites.net) is the dev site for my `personal bloging` utility called [GHK](https://github.com/rjminchuk/ghk).
+[richminchuk.io](http://richminchuk.io) is the dev site for my personal bloging utility, [GHK](https://github.com/rjminchuk/ghk).
 
 ###### The minimum layout 
 
