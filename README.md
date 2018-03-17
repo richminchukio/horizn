@@ -70,4 +70,4 @@ That's a realy good question. What shows is only the most important content for 
 Horizn uses CSS Grid, making it a bad fit for legacy browser support.
 
 # todo
-- fix `pack.md` with readable instructions.
+- remove `pack.md`, decide how to distribute Horizn
