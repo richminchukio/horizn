@@ -72,5 +72,4 @@ Horizn uses CSS Grid, making it a bad fit for legacy browser support.
 # todo
 - make available as NuGet package
 - Add instructions for `dotnet add package horizn`
-- Add license.txt
 - Add contributing.md
