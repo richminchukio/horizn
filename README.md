@@ -12,9 +12,9 @@ Horizn is less of a framework, and more of a strategy for handling different dev
 
 - `#horizn-article-open` | The checkbox input controlling article state
 - `.horizn-container` | A container required for css grid
-- `.horizn-leadin` | A nice place for an author photo, the name of your blog, and maybe a link to your github
-- `.horizn-timeline` | The area for your blog feed
-- `.horizn-sheet` | The area your blog article goes
+- `header.horizn` | A nice place for an author photo, the name of your blog, and maybe a link to your github
+- `aside.horizn` | The area for your blog feed
+- `article.horizn` | The area your blog article goes
 
 ###### But what shows and when?
 

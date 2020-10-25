@@ -21,7 +21,7 @@
        --grid-template-closed: 'leadin timeline' 1fr / 38fr 62fr;  
        --horizn-max-width: 1440px;
    }
-   #horizn-article-open:not(:checked) ~ .horizn-container{
+   #horizn-article-open:not(:checked) {
        --display-sheet: none;
        --horizn-max-width: 600px;
    }
@@ -33,7 +33,7 @@
        --grid-template-closed: 'leadin timeline' 0fr / 38fr 62fr; 
        --grid-column-gap: 0;
    }
-   #horizn-article-open:not(:checked) ~ .horizn-container{
+   #horizn-article-open:not(:checked){
        --display-sheet: none;
        --horizn-max-width: 600px;
    }
@@ -46,46 +46,46 @@
        --grid-column-gap: 0;
        --horizn-max-width: 600px;
    }
-   #horizn-article-open:checked ~ .horizn-container {
+   #horizn-article-open:checked  {
        --grid-row-gap: 0;
        --display-leadin: none;
        --display-timeline: none;
    }
-   #horizn-article-open:not(:checked) ~ .horizn-container{
+   #horizn-article-open:not(:checked) {
        --display-sheet: none;
    }
 }
 
-#horizn-article-open:checked ~ .horizn-container {
+#horizn-article-open:checked  {
    --grid-template: var(--grid-template-open); 
    --display-sheet: block;
    --horizn-max-width: 1440px;
    --color: green;
 }
-#horizn-article-open:not(:checked) ~ .horizn-container{
+#horizn-article-open:not(:checked) {
    --grid-template: var(--grid-template-closed); 
    --color: blue;
 }
 
-.horizn-container { 
+body.horizn { 
    margin: 0 auto;
    max-width: var(--horizn-max-width);
    display: grid;
    grid-template: var(--grid-template);
    grid-row-gap: var(--grid-row-gap);
    grid-column-gap: var(--grid-column-gap);
-   /* background-color: var(--color) !important; */
+   background-color: var(--color) !important;
 }
 
-.horizn-leadin { 
+header.horizn { 
    grid-area: leadin; 
    display: var(--display-leadin);
 }
-.horizn-timeline { 
+aside.horizn { 
    grid-area: timeline; 
    display: var(--display-timeline);
 }
-.horizn-sheet { 
+article.horizn { 
    grid-area: sheet; 
    display: var(--display-sheet);
 }

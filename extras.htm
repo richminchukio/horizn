@@ -1,0 +1,48 @@
+<!-- chevron -->
+
+<aside 
+      class="horizn" 
+      style="overflow: hidden; height: 100vh;display: flex;flex-direction: column-reverse;">
+   <a style="transform: rotate(90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); display: inline-block; font-size: 2rem; align-self: flex-end; z-index: 1; color: white; margin: 0 auto; font-weight: bold; padding: 1rem;">〈</a>
+</aside>
+
+<!-- scroll -->
+
+<style>
+ article.horizn::-webkit-scrollbar, aside::-webkit-scrollbar {
+     -webkit-appearance: none;
+     width: 0;
+     height: 0;
+     display: none;
+ } 
+ article.horizn, aside {
+     overflow-y: scroll;
+     height: 100vh;
+ }</style>
+
+
+<!-- ribbon -->
+
+<div class="corner-ribbon top-right sticky blue"><i>Now in <b>AKS</b></i></div>
+<style>
+ .corner-ribbon{
+   width: 200px;
+   background: #e43;
+   position: fixed;
+   top: 25px;
+   left: -50px;
+   text-align: center;
+   line-height: 50px;
+   letter-spacing: 1px;
+   color: #f0f0f0;
+   transform: rotate(-45deg);
+   -webkit-transform: rotate(-45deg);
+ }.corner-ribbon.blue{background: #39d;}
+ .corner-ribbon.top-right{
+   top: 25px;
+   right: -50px;
+   left: auto;
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+ }
+</style>
