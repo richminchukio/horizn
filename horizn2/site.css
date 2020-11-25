@@ -1,0 +1,374 @@
+﻿/* prettyprint style fixes test */
+pre.prettyprint {
+   padding: 1rem 0rem;
+   border: 0;
+   width: initial;
+	white-space: pre-wrap;
+}
+
+aside pre.prettyprint {
+   padding: 0;
+}
+
+code.prettyprint {
+   padding: .1em .5em;
+   display: inline-block;
+}
+.prettyprint {
+}
+
+pre.prettyprint, 
+code.prettyprint {
+   background-color: transparent; /* todo: adjust this? */
+   border-radius: 0;
+}
+
+/* general styling */
+body {
+   font-size: 1rem;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   word-break: break-word;
+   margin: 0;
+}
+@media screen and (prefers-color-scheme: dark) {
+   body {
+      color: white;
+      background-color: #222;
+      color: #ddd;
+   }
+}
+
+/* background of the darktheme */
+/*@media screen and (prefers-color-scheme: dark) {
+   body:before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      display: block;
+      background-image: url('../img/2.0-palms.jpg'); *//* http://lamejourney.tumblr.com/post/108675056210 *//*
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      -webkit-filter: blur(4px) brightness(.9);
+      -moz-filter: blur(4px) brightness(.9);
+      -o-filter: blur(4px) brightness(.9);
+      -ms-filter: blur(4px) brightness(.9);
+      filter: blur(4px) brightness(.9);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1); 
+   }
+}*/
+
+img {
+   width: 100%;
+}
+
+p.imgContainer {
+   width: auto;
+   margin-left: -1rem;
+   margin-right: -1rem;
+}
+
+p.imgContainer img {
+   max-height: 101vh;
+   min-width: 100%;
+   object-fit: cover;
+   object-position: 50% 50%;
+}
+
+html.hasNotchRight p.imgContainer {
+   width: auto;
+   margin-left: -1rem;
+   margin-right: calc(-1 * env(safe-area-inset-right));
+}
+html.hasNotchLeft p.imgContainer {
+   width: auto;
+   margin-right: -1rem;
+   margin-left: calc(-1 * env(safe-area-inset-left));
+}
+
+code, kbd, pre, samp {
+   font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+}
+h1, h2, h3, h4, h5, h6, li, p, img {
+   margin-bottom: .5rem;
+}
+h1 { 
+   font-size: 2.2rem;
+   margin-top: -.3rem;
+}
+h2 { 
+   font-size: 2.0rem;
+   font-weight: 500;
+}
+h3 { 
+   font-size: 1rem;
+   font-weight: normal;
+}
+h4 { 
+   line-height: 1.6rem; 
+}
+h5 { 
+   line-height: 1.4rem; 
+}
+h6 { 
+   line-height: 1.2rem; 
+}
+p, li {
+   font-size: 1rem;
+   line-height: 1.5rem;
+   font-weight: 300;
+}
+pre, code {
+   font-size: .9em;
+}
+pre > code {
+   line-height: 1.2rem;
+}
+
+button, input, optgroup, select, textarea {
+   color: black;
+}
+@media screen and (prefers-color-scheme: dark) {
+   button, input, optgroup, select, textarea { 
+      color: black; 
+   }
+}
+
+input.ghkSubscribeInput {
+   color: black;
+}
+@media screen and (prefers-color-scheme: dark) {
+   input.ghkSubscribeInput { color: white; }
+}
+
+a,
+a:link, 
+a:hover, 
+a:visited, 
+a:active { 
+   text-decoration: none;
+   color: #3387CC;
+   cursor: pointer;
+   font-weight: 400;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+   a,
+   a:link, 
+   a:hover, 
+   a:visited, 
+   a:active{ 
+      text-decoration: none;
+      color: #2573b3;
+      cursor: pointer;
+   }
+}
+
+aside > ol a:link,
+aside > ol a:hover,
+aside > ol a:visited,
+aside > ol a:active {
+   text-decoration: none; 
+   color: initial;
+   cursor: pointer; 
+}
+
+/* horizn-leadin styling */
+header > div {
+   position: absolute; 
+   bottom: var(--uom); 
+   left: calc(var(--uom) + var(--safe-area-inset-left));
+}
+
+@media (orientation: portrait) {
+   body.mobile.safari > header > div {
+      bottom: calc(var(--safari-vh-offset-iphone-portrait) + var(--uom));
+   }
+}
+@media (orientation: landscape) {
+   body.mobile.safari > header > div {
+      bottom: var(--uom);
+   }
+}
+body.tablet.safari > header > div {
+   bottom: var(--uom);
+}
+
+header > div > h1 {
+   text-shadow: 0px 0px 20px #000;
+   
+}
+header > div > p:first-of-type {
+   text-shadow: 0px 0px 3px #000;
+   font-weight: 400;
+   margin-top: 0rem;
+}
+
+/* timeline styling  */
+.circle {
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   display: inline-block;
+   border-color: lightgray;
+   border-width: .2rem;
+   border-style: solid;
+   height: .4rem;
+   width: .4rem;
+   background-color: white;
+   font-size: 1.55rem;
+   line-height: 0rem;
+   margin-right: .7rem;
+}
+@media screen and (prefers-color-scheme: dark) {
+   .circle {
+      background-color: rgb(11, 29, 4);
+   }
+}
+
+.circle-blue {
+   border-color: #00aeef;
+}
+
+.circle-orange {
+   border-color: orange;
+}
+
+aside {
+   margin-top: unset;
+}
+
+aside ol {
+   padding-left: 0;
+}
+aside ol a {
+   position: relative;
+   margin-bottom: 3rem;
+   display: inline-block;
+}
+
+aside ol a h3 {
+   margin-top: -.39rem;
+   margin-bottom: .25rem;
+}
+@media screen and (prefers-color-scheme: dark) {
+   aside ol a h3 { 
+      color:#ffffff;
+   }
+}
+
+aside ol li a p {
+   margin-top: 0;
+   font-size: .8rem;
+   display: block;
+}
+@media screen and (prefers-color-scheme: dark) {
+   aside ol li a p { 
+      color:#ffffff; 
+   }
+}
+
+aside ol li a p:empty {
+   display: none;
+}
+
+aside ol li a pre {
+   margin-top: 0;
+}
+
+aside ol li {
+   margin-bottom: 0;
+   margin-left: 1rem;
+   display: block;
+   border-left: 1px solid #ddd;
+   padding-left: 1.5rem;
+}
+
+aside ol li:last-child {
+   display: block;
+   border-left-width: 0px;
+   margin-bottom: 5rem;
+}
+
+aside li a span.circle {
+   position: absolute;
+   left: -1.925rem;
+   display: inline-block;
+}
+
+/* sheet styling */
+@media screen and (prefers-color-scheme: dark) {
+   article {
+      /*background-color: rgba(0,0,0,.5);*/
+   }
+}
+
+article > div > blockquote {
+   margin: initial;
+   margin-left: .2rem;
+   border-left: #3f9be6 solid .2rem;
+   padding-left: 1rem;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+   article > div > blockquote {
+      border-left: #2573b3 solid .2rem;
+   }
+}
+
+article > div > span {
+   display: block;
+   margin-bottom: 1.2rem;
+}
+
+article > div > span > h3 {
+   display: inline;
+   font-size: .8rem;
+   font-weight: 300;
+}
+@media screen and (prefers-color-scheme: dark) {
+   article > div > span > h3 {
+      color:#ffffff;
+   }
+}
+
+article time {
+   font-size: .7rem;
+}
+
+article > div {
+   margin: -1.5rem 0 -1rem 0;
+   padding-bottom: 4.5rem;
+}
+
+article > div ul {
+   padding: 0 1rem 0 2.5rem;
+}
+
+article > p {
+   margin-bottom: 2rem;
+}
+
+/* horizn specific css that are good overrides! */
+/* @media (orientation: portrait) and (max-width: 1439px), (orientation: landscape) and (max-width: 1023px) { 
+   #horizn-article-open:not(:checked) ~ .horizn-container { --nav-bottom-margin: 4rem; }
+   #horizn-article-open:checked ~ .horizn-container {--nav-bottom-margin: 2rem; }
+   #horizn-article-open:checked ~ .horizn-container .horizn-timeline > nav { background-color: transparent; display: none; }
+}
+
+@media (orientation: landscape) and (max-width: 812px) { 
+   #horizn-article-open:not(:checked) ~ .horizn-container { --nav-bottom-margin: 2rem; }
+   #horizn-article-open:checked ~ .horizn-container { --nav-bottom-margin: 1rem; }
+   #horizn-article-open:checked ~ .horizn-container .horizn-timeline > nav { background-color: transparent; display: none; }
+}
+@media (orientation: portrait) and (max-width: 700px) { 
+   #horizn-article-open:not(:checked) ~ .horizn-container { --nav-bottom-margin: 1rem; }
+   #horizn-article-open:checked ~ .horizn-container { --nav-bottom-margin: 1rem; }
+   .horizn-timeline > nav { background-color: transparent; display: none; }
+} */
