@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="">
+   <head>
+      <script>
+         var GHK = {
+            Globals: {
+               GoogleAnalyticsKey: 'UA-114700057-1',
+               EnvironmentName: 'K8s',
+               LoggedIn: false,
+               XsrfToken: '',
+               ReactTimeline: false
+            }
+         };
+      </script>
+      
+      <link rel="stylesheet" href="./horizn2.css">
+      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/ghk.css">
+      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/normalize.css">
+      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/prettify.css">
+      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/sunburst.css">
+      <link rel="stylesheet" href="./site.css">
+   
+      <link rel="icon" type="image/png" sizes="64x64" href="../../richminchuk.io.1.1/wwwroot/img/64.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="../../richminchuk.io.1.1/wwwroot/img/180.png">
+      <link rel="apple-touch-icon" sizes="310x310" href="../../richminchuk.io.1.1/wwwroot/img/310.png">
+      <link rel="apple-touch-icon" sizes="500x500" href="../../richminchuk.io.1.1/wwwroot/img/500.png">
+      <meta name="msapplication-square70x70logo" content="../../richminchuk.io.1.1/wwwroot/img/70.png">
+      <meta name="msapplication-square150x150logo" content="../../richminchuk.io.1.1/wwwroot/img/150.png">
+      <meta name="msapplication-square310x310logo" content="../../richminchuk.io.1.1/wwwroot/img/310.png">
+      <link rel="mask-icon" href="../../richminchuk.io.1.1/wwwroot/img/500.svg" color="white">
+      
+   </head>
+   <body class="desktop safari touch">
+      <article class='horizn-sheet'>
+         <nav>
+            <p><a href="#">more articles</a></p>
+         </nav>
+         <div style="margin-top: 4rem;">
+            <h1>Getting Started with Hashicorp Terraform</h1>
+            <div itemprop="description">A brief overview of what terraform is, and how we can use it to define infrastructure as code.</div>
+            <span><h3><span itemscope="" itemtype="http://schema.org/Person"><a href="/" rel="author" itemprop="author">Rich Minchuk</a></span> - <time datetime="2020-01-04T00:00:00Z" itemprop="datePublished">2020.01.04</time></h3></span>
+            <p>Hello again, my name is Rich Minchuk, and I'd like to describe some infrastructure as code. What exactly does that mean?</p><p>Well, it means a few things.</p><ul><li>It means that I'd like to know how the systems I'm working with were created.</li><li>It means that I'd like to know how to recreate the systems I'm working with.</li><li>It means that I'd like to know that I can redeploy exactly what was lost in the case of a disaster.</li><li>It means that I'd probably like to version control this code as well.</li></ul><p>I would like a singular place that I can look that describes the infrastructure I'm working with (say I'm deploying an application to this infrastructure), and know exactly how it was created. In specific cases where I might be unsure if my infrastructure matches the code that describes it, I should be able to easily destroy the infrastructure and know exactly how  to recreate it.</p>
+            <p>Terraform is an open source tool for defining infrastructure as code. You can use it to define on-prem and cloud infrastructure (IE: VMWare, AWS, Azure, GCP, Networking, etc..), as well as provision software using well known infrastructure automation frameworks (Helm, Chef, etc..).</p><p>In the example above, I'm creating a variable I can use later in my project to define which Amazon Machine Image I want to use, and you can see the syntactical differences between Hashicorp Configuration Language and JSON as well.</p>
+            <h3>Resources &amp; Other Components</h3><p>Resources are the primary component you'll work with after setting up a terraform repo. They define the infrastructure we wish to create, according to how the resource expects the infrastructure to be defined.</p><p>In this example, we've specified that the "AWS Instance" called "web" is based on the Amazon Machine Image "AMI - a1 b2 c3 d4", and it's of the "instance type" "t2 micro". And for now, that's all we really need to define this <em>machine</em> in code.</p>
+            <p>A provider is a configuration block that <em>exposes</em> specific Resources.</p><p>For example, if I wanted to create a virtual machine in AWS, I would use the AWS Provider to expose the "AWS Instance" resource (above).</p>
+            <p>Modules are an abstraction layer for resources that are typically used together. They help you encapsulate complexity out of the way. From the root module (or your terraform git repository's top level folder) you can call any number of modules. So, instead of configuring a lengthy resource definition in your top level <code class="prettyprint prettyprinted" style=""><span class="pln">main</span><span class="pun">.</span><span class="pln">tf</span></code> file, abstract away it's inputs in a sub module.</p>
+            <p>As you saw above I included a custom variable called <code class="prettyprint prettyprinted" style=""><span class="kwd">my</span><span class="pun">-</span><span class="pln">input</span><span class="pun">-</span><span class="pln">variable</span></code> in the call to <code class="prettyprint prettyprinted" style=""><span class="kwd">my</span><span class="pun">-</span><span class="kwd">module</span><span class="pun">-</span><span class="pln">that</span><span class="pun">-</span><span class="pln">does</span><span class="pun">-</span><span class="pln">things</span></code>. Variables help you define the inputs that your project or module requires. When building infrastructure you may require environment specific configuration. Being able to substitute this information at planning and execution is a crucial component of multi-environment based infrastructure management.</p>
+            <p>We'd define this environment specific configuration in variable files, which are included when we terraform plan, or terraform apply the infrastructure.</p><p>Data sources are an interesting way to dynamically modify your terraform plan. For example, I might want to create an EC2 instance based on the latest Amazon Machine Image.</p><p>I can define an "AWS AMI" data source, then reference the ID of the machine image in my AWS Instance resource definition. When I terraform plan my project, It'll return whether or not there's a new Amazon Machine Image for me to use or not.</p>
+            <p>Provisioners are tools that allow us to perform custom actions on our infrastructure.</p><p>We can copy files to remote servers or execute scripts there too. There's also support for common infrastructure automation frameworks like puppet and chef.</p><p>Terraform uses state files to understand the last known configuration of your infrastructure. This helps terraform understand what actions need to be taken when planning our infrastructure changes. We use the <code class="prettyprint prettyprinted" style=""><span class="pln">terraform plan</span></code> command to test that changes we made in code will have the effect we desire on our infrastructure.</p>
+            <p>In a multi user terraform-ing team (like a DevOps team), remote backends can be used to share the known state of our infrastructure. Some remote backends even support state locking, because we wouldn't want two people trying to apply changes at the same time.</p><p>There's a slew of supported options for <a href="https://terraform.io/docs/backends/types" target="_blank">terraform backends</a> including (Artifactory, AzureRM, GCS, S3, and many more).</p><h3>Getting Started</h3><p>I'm sure you're wondering how to get started. Well that's a pretty difficult question to answer due to the wide breadth of infrastructure you can create with Terraform. My suggestion to you is that you start trying to define your existing infrastructure in code first. When you've done that you can rest assured you'll always be able to recreate it if there is a problem!</p>
+            <p>For a more litteral set of getting started steps, first create a new git repo, change directories to it, and run <code class="prettyprint prettyprinted" style=""><span class="pln">terraform init</span></code>. This is the first command you'll run when setting up a new terraform project. you'll probably want to create a <code class="prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">gitignore</span></code> as well:</p><p>Good Luck, and be sure to click subscribe to see how I terraform my Azure Kubernetes Service next!</p>
+         </div>
+      </article>
+      <aside>
+         <nav>
+            <p><a href="#">search</a></p>
+         </nav>
+         <ol style="margin-top: 7rem;">
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Creating a dotnet core NuGet&nbsp;Package</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
+            <li><a href="#"><span class="circle circle-orange">&nbsp;</span></a></li>
+         </ol>
+      </aside>
+      <header style="background: url(../../IMG_3807.jpeg); background-size: cover; background-position-x: 60%;">
+         <nav><p class="ghkSubscribeText">subscribe</p></nav>
+         <div>
+            <h1>Rich Minchuk</h1>
+            <p>Technical Entrepreneur and<br>Wannabe Growth Hacker</p>
+         </div>
+      </header>
+   </body>
+</html>
