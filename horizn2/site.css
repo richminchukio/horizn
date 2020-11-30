@@ -70,8 +70,8 @@ img {
 
 p.imgContainer {
    width: auto;
-   margin-left: -1rem;
-   margin-right: -1rem;
+   margin-left: calc(var(--uom) * -1);
+   margin-right: calc(var(--uom) * -1);
 }
 
 p.imgContainer img {
@@ -83,12 +83,12 @@ p.imgContainer img {
 
 html.hasNotchRight p.imgContainer {
    width: auto;
-   margin-left: -1rem;
+   margin-left: calc(var(--uom) * -1);
    margin-right: calc(-1 * env(safe-area-inset-right));
 }
 html.hasNotchLeft p.imgContainer {
    width: auto;
-   margin-right: -1rem;
+   margin-right: calc(var(--uom) * -1);
    margin-left: calc(-1 * env(safe-area-inset-left));
 }
 
@@ -202,12 +202,14 @@ body.tablet.safari > header > div {
 
 header > div > h1 {
    text-shadow: 0px 0px 20px #000;
+   color: white;
    
 }
 header > div > p:first-of-type {
    text-shadow: 0px 0px 3px #000;
    font-weight: 400;
    margin-top: 0rem;
+   color: white;
 }
 
 /* timeline styling  */
@@ -343,16 +345,12 @@ article time {
 }
 
 article > div {
-   margin: -1.5rem 0 -1rem 0;
+   margin: -1.5rem 0 calc(var(--uom) * -1) 0;
    padding-bottom: 4.5rem;
 }
 
 article > div ul {
    padding: 0 1rem 0 2.5rem;
-}
-
-article > p {
-   margin-bottom: 2rem;
 }
 
 /* horizn specific css that are good overrides! */

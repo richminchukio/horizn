@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html class="">
+<html>
    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover" />
       <script>
          var GHK = {
             Globals: {
@@ -13,27 +14,28 @@
          };
       </script>
       
-      <link rel="stylesheet" href="./horizn2.css">
-      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/ghk.css">
-      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/normalize.css">
-      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/prettify.css">
-      <link rel="stylesheet" href="../../richminchuk.io.1.1/wwwroot/css/sunburst.css">
-      <link rel="stylesheet" href="./site.css">
+      <link rel="stylesheet" href="./dist/horizn2.css">
+      <link rel="stylesheet" href="./css/ghk/ghk.css">
+      <link rel="stylesheet" href="./css/normalize.css">
+      <link rel="stylesheet" href="./css/prettify.css">
+      <link rel="stylesheet" href="./css/sunburst.css">
+      <link rel="stylesheet" href="./css/site.css">
    
-      <link rel="icon" type="image/png" sizes="64x64" href="../../richminchuk.io.1.1/wwwroot/img/64.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="../../richminchuk.io.1.1/wwwroot/img/180.png">
-      <link rel="apple-touch-icon" sizes="310x310" href="../../richminchuk.io.1.1/wwwroot/img/310.png">
-      <link rel="apple-touch-icon" sizes="500x500" href="../../richminchuk.io.1.1/wwwroot/img/500.png">
-      <meta name="msapplication-square70x70logo" content="../../richminchuk.io.1.1/wwwroot/img/70.png">
-      <meta name="msapplication-square150x150logo" content="../../richminchuk.io.1.1/wwwroot/img/150.png">
-      <meta name="msapplication-square310x310logo" content="../../richminchuk.io.1.1/wwwroot/img/310.png">
-      <link rel="mask-icon" href="../../richminchuk.io.1.1/wwwroot/img/500.svg" color="white">
+      <link rel="icon" type="image/png" sizes="64x64" href="./img/64.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="./img/180.png">
+      <link rel="apple-touch-icon" sizes="310x310" href="./img/310.png">
+      <link rel="apple-touch-icon" sizes="500x500" href="./img/500.png">
+      <meta name="msapplication-square70x70logo" content="./img/70.png">
+      <meta name="msapplication-square150x150logo" content="./img/150.png">
+      <meta name="msapplication-square310x310logo" content="./img/310.png">
+      <link rel="mask-icon" href="./img/500.svg" color="white">
       
    </head>
-   <body class="desktop safari touch">
+   <body class=" touch">
       <article class='horizn-sheet'>
          <nav>
-            <p><a href="#">more articles</a></p>
+            <a href="#" onclick="javascript:document.getElementsByTagName('article')[0].remove()">more articles</a>
+            <a href="#" style="float: right; padding-right: var(--safe-area-inset-right);">subscribe</a>
          </nav>
          <div style="margin-top: 4rem;">
             <h1>Getting Started with Hashicorp Terraform</h1>
@@ -53,7 +55,13 @@
       </article>
       <aside>
          <nav>
-            <p><a href="#">search</a></p>
+            <a href="#">search</a>
+            <a href="#">search</a>
+            <a href="#">search</a>
+            <a href="#">search</a>
+            <a href="#">search</a>
+            <a href="#">search</a>
+            <a href="#">search</a>
          </nav>
          <ol style="margin-top: 7rem;">
             <li><a href="#"><span class="circle ">&nbsp;</span><h3>Unit Testing on MacOS /&nbsp;Windows</h3><p><time datetime="2020-01-04T00:00:00Z">2020.01.04</time></p></a></li>
@@ -76,12 +84,28 @@
             <li><a href="#"><span class="circle circle-orange">&nbsp;</span></a></li>
          </ol>
       </aside>
-      <header style="background: url(../../IMG_3807.jpeg); background-size: cover; background-position-x: 60%;">
-         <nav><p class="ghkSubscribeText">subscribe</p></nav>
+      <header style="background: url(./img/IMG_3807.jpeg); background-size: cover; background-position-x: 60%;">
+         <nav>
+            <a href="#">richminchuk.io</a>
+            <a href="#">software</a>
+            <a href="#">espresso</a>
+            <a href="#">film</a>
+            <a href="#">software</a><a href="#">espresso</a><a href="#">film</a>
+         </nav>
          <div>
             <h1>Rich Minchuk</h1>
             <p>Technical Entrepreneur and<br>Wannabe Growth Hacker</p>
          </div>
       </header>
+
+      <script>
+         var p = document.createElement('p');
+         p.innerText = getComputedStyle(document.documentElement).getPropertyValue("--safe-area-inset-top")
+                       + getComputedStyle(document.documentElement).getPropertyValue("--safe-area-inset-right")
+                       + getComputedStyle(document.documentElement).getPropertyValue("--safe-area-inset-bottom")
+                       + getComputedStyle(document.documentElement).getPropertyValue("--safe-area-inset-left")
+                       + getComputedStyle(document.documentElement).getPropertyValue("--safe-area-inset");
+         document.body.children[0].children[1].append(p);
+      </script>
    </body>
 </html>
