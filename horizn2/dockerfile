@@ -1,0 +1,12 @@
+FROM nginx:latest
+RUN mkdir -p /usr/share/nginx/html/dist;
+RUN mkdir -p /usr/share/nginx/html/css/ghk;
+RUN mkdir -p /usr/share/nginx/html/img;
+COPY ./index.htm /usr/share/nginx/html/index.html
+COPY ./horizn2.css /usr/share/nginx/html/dist/
+COPY ./site.css /usr/share/nginx/html/css/
+COPY ./css/ghk/ghk.css /usr/share/nginx/html/css/ghk/
+COPY ./css/normalize.css /usr/share/nginx/html/css/
+COPY ./css/prettify.css /usr/share/nginx/html/css/
+COPY ./css/sunburst.css /usr/share/nginx/html/css/
+COPY ./img/ /usr/share/nginx/html/img/
