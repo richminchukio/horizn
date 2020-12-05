@@ -121,7 +121,7 @@ h6 {
 }
 p, li {
    font-size: 1rem;
-   line-height: 1.5rem;
+   line-height: 1rem;
    font-weight: 300;
 }
 pre, code {
@@ -147,42 +147,17 @@ input.ghkSubscribeInput {
    input.ghkSubscribeInput { color: white; }
 }
 
-a,
-a:link, 
-a:hover, 
-a:visited, 
-a:active { 
-   text-decoration: none;
-   color: #3387CC;
-   cursor: pointer;
-   font-weight: 400;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-   a,
-   a:link, 
-   a:hover, 
-   a:visited, 
-   a:active{ 
-      text-decoration: none;
-      color: #2573b3;
-      cursor: pointer;
-   }
-}
-
-aside > ol a:link,
-aside > ol a:hover,
-aside > ol a:visited,
-aside > ol a:active {
-   text-decoration: none; 
-   color: initial;
-   cursor: pointer; 
-}
-
 /* horizn-leadin styling */
+header > nav > a:link,
+header > nav > a:hover,
+header > nav > a:visited,
+header > nav > a:active {
+   color: white;
+}
+
 header > div {
    position: absolute; 
-   bottom: var(--uom); 
+   bottom: calc(var(--uom));
    left: calc(var(--uom) + var(--safe-area-inset-left));
 }
 
@@ -246,7 +221,15 @@ aside {
    margin-top: unset;
 }
 
+aside a:hover {
+   text-decoration: initial;
+}
+aside > ol > li > a:hover > h3 {
+   text-decoration: underline;
+}
+
 aside ol {
+   margin-top: 4rem;
    padding-left: 0;
 }
 aside ol a {
@@ -258,11 +241,6 @@ aside ol a {
 aside ol a h3 {
    margin-top: -.39rem;
    margin-bottom: .25rem;
-}
-@media screen and (prefers-color-scheme: dark) {
-   aside ol a h3 { 
-      color:#ffffff;
-   }
 }
 
 aside ol li a p {
@@ -293,9 +271,7 @@ aside ol li {
 }
 
 aside ol li:last-child {
-   display: block;
    border-left-width: 0px;
-   margin-bottom: 5rem;
 }
 
 aside li a span.circle {
@@ -345,7 +321,7 @@ article time {
 }
 
 article > div {
-   margin: -1.5rem 0 calc(var(--uom) * -1) 0;
+   margin: 4rem 0 calc(var(--uom) * -1) 0;
    padding-bottom: 4.5rem;
 }
 
@@ -370,3 +346,10 @@ article > div ul {
    #horizn-article-open:checked ~ .horizn-container { --nav-bottom-margin: 1rem; }
    .horizn-timeline > nav { background-color: transparent; display: none; }
 } */
+@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 7.5in), (orientation: landscape) and (max-height: 5in) { /* 414px 480px */
+   body > article > div { margin-top: calc(var(--uom) * 2); }
+}
+
+@media (orientation: landscape) and (max-height: 5in) { /* 414px 480px */
+   body > aside > ol { margin-top: calc(var(--uom) * 2); }
+}
