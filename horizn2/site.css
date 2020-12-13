@@ -10,13 +10,6 @@ body {
    word-break: break-word;
 }
 
-@media screen and (prefers-color-scheme: dark) {
-   body {
-      background-color: #222;
-      color: #ddd;
-   }
-}
-
 @media (max-width: 1022px) {
    article > p.imgContainer {
       width: auto;
@@ -153,6 +146,12 @@ header > picture > img {
    }
 }
 
+header > div {
+   position: absolute; 
+   bottom: calc(var(--uom) + var(--safe-area-inset-bottom));
+   left: calc(var(--uom) + var(--safe-area-inset-left));
+}
+
 header > div > h1 {
    text-shadow: 0px 0px 20px #000;
    color: white;
@@ -164,19 +163,6 @@ header > div > p:first-of-type {
    font-weight: 400;
    margin-top: 0rem;
    color: white;
-}
-
-header > nav > a:link,
-header > nav > a:hover,
-header > nav > a:visited,
-header > nav > a:active {
-   color: white;
-}
-
-header > div {
-   position: absolute; 
-   bottom: calc(var(--uom) + var(--safe-area-inset-bottom));
-   left: calc(var(--uom) + var(--safe-area-inset-left));
 }
 
 @media (orientation: portrait) {
