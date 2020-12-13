@@ -2,6 +2,24 @@
    --uom: 1rem;
    --max-aside: 4in;
    --max-article: 6.25in;
+   --dark-article-background: #222222ff;
+   --dark-article-color: #ddddddff;
+   --dark-aside-backdrop-filter: blur(8px);
+   --dark-aside-background: #000000cc;
+   --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
+   --dark-nav-fixed-background: #191919;
+   --dark-nav-fixed-color: #ffffffff;
+   --dark-nav-transparent-background: #00000033;
+   --light-article-background: #ffffffff;
+   --light-article-color: #111111ff;
+   --light-aside-backdrop-filter: blur(8px);
+   --light-aside-background: #ffffff66;
+   --light-aside-text-shaddow: 0px 0px 20px #ffffffff;
+   --light-nav-fixed-background: #f5f5f5;
+   --light-nav-fixed-color: #ffffffff;
+   --light-nav-transparent-background: #ffffff33;
+   --light-link: #3387CC;
+   --dark-link: #2573b3;
    --safe-area-inset-top: env(safe-area-inset-top, 0px);
    --safe-area-inset-right: env(safe-area-inset-right, 0px);
    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
@@ -21,6 +39,15 @@ body {
    -webkit-text-size-adjust: 100%;
    box-sizing: initial; /* box-sizing: border-box does not work with -webkit-fill-available. It could have spared a lot of calc statements, but I tried it, doesn't work. don't bother. */
    overflow-x: hidden;
+   background-color: var(--light-article-background);
+   color: var(--light-article-color);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+   body {
+      background-color: var(--dark-article-background);
+      color: var(--dark-article-color);
+   }
 }
 
 header,
@@ -44,7 +71,8 @@ header {
 }
 
 header > *:not(nav, picture) {
-   width: 100%;
+   width: auto;
+   max-width: 100%;
    box-sizing: border-box;
 }
 
@@ -93,19 +121,29 @@ aside {
    max-width: calc(var(--max-aside) - var(--safe-area-inset-right));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
    z-index: 1;
-   background-color: rgba(255,255,255,0.65);
-   -webkit-backdrop-filter: blur(8px);
-   backdrop-filter: blur(8px);
+   background-color: var(--light-aside-background);
+   -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
+   backdrop-filter: var(--light-aside-backdrop-filter);
+}
+
+aside *:not(nav, pre, code, ol, ul, li) {
+   text-shadow: var(--light-aside-text-shaddow);
 }
 
 @media screen and (prefers-color-scheme: dark) {
+   aside *:not(nav, pre, code, ol, ul, li) {
+      text-shadow: var(--dark-aside-text-shaddow);
+   }
    aside {
-      background-color: rgba(0,0,0,0.8); 
+      background-color: var(--dark-aside-background);
+      -webkit-backdrop-filter: var(--dark-aside-backdrop-filter);
+      backdrop-filter: var(--dark-aside-backdrop-filter);
    }
 }
 
 aside > *:not(nav) {
-   width: 100%;
+   width: auto;
+   max-width: 100%;
    box-sizing: border-box;
 }
 
@@ -129,8 +167,10 @@ article {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
 }
 
-article > *:not(nav) {
-   width: 100%;
+article > *:not(nav),
+article > *:not(nav) > img {
+   width: auto;
+   max-width: 100%;
    box-sizing: border-box;
 }
 
@@ -139,7 +179,7 @@ nav {
    margin: calc(calc(var(--safe-area-inset-top) * -1) - var(--uom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5)) calc(var(--uom) * -1) var(--uom) calc(var(--uom) * -1);
    padding: calc(var(--uom) + var(--safe-area-inset-top)) var(--uom) var(--uom) var(--uom);
    height: calc(var(--uom) * 1.5);
-   background-color: rgba(255,255,255,.2);
+   background-color: var(--light-nav-transparent-background);
    width: 100%;
    max-width: 100%;
    white-space: nowrap;
@@ -150,16 +190,16 @@ nav {
 
 aside nav,
 article nav {
-   background-color: #f5f5f5;
+   background-color: var(--light-nav-fixed-background);
 }
 
 @media screen and (prefers-color-scheme: dark) {
    nav {
-      background-color: rgba(0,0,0,.2);
+      background-color: var(--dark-nav-transparent-background);
    }
    aside nav,
    article nav {
-      background-color: #191919;
+      background-color: var(--dark-nav-fixed-background);
    }
 }
 
@@ -221,7 +261,7 @@ a:link,
 a:visited,
 a:active {
    text-decoration: none;
-   color: #3387CC;
+   color: var(--light-link);
    font-weight: 400;
 }
 
@@ -235,7 +275,23 @@ a:hover {
    a:hover,
    a:visited,
    a:active {
-      color: #2573b3;
+      color: var(--dark-link);
+   }
+}
+
+header > nav > a:link,
+header > nav > a:hover,
+header > nav > a:visited,
+header > nav > a:active {
+   color: var(--light-nav-fixed-color);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+   header > nav > a:link,
+   header > nav > a:hover,
+   header > nav > a:visited,
+   header > nav > a:active {
+      color: var(--dark-nav-fixed-color);
    }
 }
 
