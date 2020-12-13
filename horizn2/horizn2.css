@@ -6,6 +6,10 @@
    --safe-area-inset-right: env(safe-area-inset-right, 0px);
    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+   /* --safe-area-inset-top: 44px;
+   --safe-area-inset-right: 44px;
+   --safe-area-inset-bottom: 44px;
+   --safe-area-inset-left: 44px; */
 }
 
 body {
@@ -35,7 +39,38 @@ header {
    position: sticky;
    top: 0;
    padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+   z-index: 0;
+   width: 100vw;
 }
+
+header > *:not(nav, picture) {
+   width: 100%;
+   box-sizing: border-box;
+}
+
+header > picture > img {
+   position: absolute;
+   top: 0px;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+   z-index: -1;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+
+header,
+aside,
+article > nav {
+   /* https://stackoverflow.com/a/4407335/2969956 */
+   -webkit-touch-callout: none !important; /* iOS Safari */
+   -khtml-user-select: none !important; /* Konqueror HTML */
+   -webkit-user-select: none !important; /* Safari */
+   -moz-user-select: none !important; /* Old versions of Firefox */
+   -ms-user-select: none !important; /* Internet Explorer/Edge */
+   user-select: none !important; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+ }
 
 article ~ header {
    /*          100vh - article width      - padding * 4 (for left and right padding of 2 elements) */
@@ -43,11 +78,13 @@ article ~ header {
 }
 
 aside + header {
-   width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left));
+   margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
 }
 
 article + aside + header {
-   width: calc(100vw - var(--max-article) - var(--max-aside) - calc(var(--uom) * 6) - var(--safe-area-inset-left));
+   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
 }
 
 aside {
@@ -55,6 +92,21 @@ aside {
    height: 100%;
    max-width: calc(var(--max-aside) - var(--safe-area-inset-right));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   z-index: 1;
+   background-color: rgba(255,255,255,0.65);
+   -webkit-backdrop-filter: blur(8px);
+   backdrop-filter: blur(8px);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+   aside {
+      background-color: rgba(0,0,0,0.8); 
+   }
+}
+
+aside > *:not(nav) {
+   width: 100%;
+   box-sizing: border-box;
 }
 
 article + aside {
@@ -66,6 +118,7 @@ article + aside {
    overflow: scroll;
    max-width: var(--max-aside);
    padding-right: var(--uom);
+   min-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
 }
 
 article {
@@ -76,11 +129,16 @@ article {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
 }
 
+article > *:not(nav) {
+   width: 100%;
+   box-sizing: border-box;
+}
+
 /* navigation bar styling */
 nav {
    margin: calc(calc(var(--safe-area-inset-top) * -1) - var(--uom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5)) calc(var(--uom) * -1) var(--uom) calc(var(--uom) * -1);
    padding: calc(var(--uom) + var(--safe-area-inset-top)) var(--uom) var(--uom) var(--uom);
-   height: 1.5rem;
+   height: calc(var(--uom) * 1.5);
    background-color: rgba(255,255,255,.2);
    width: 100%;
    max-width: 100%;
@@ -153,6 +211,10 @@ article > nav {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
 }
 
+aside + header > nav {
+   width: calc(100% - var(--max-aside) - calc(var(--uom) * 2));
+}
+
 /* anchor tag stylings */
 a,
 a:link,
@@ -177,9 +239,8 @@ a:hover {
    }
 }
 
-
 /* the width of a tablet in landscape (and lower): hide the aside, override width of header to account for hidden aside */
-@media (max-width: 1700px){
+@media (max-width: 1700px) {
    article + aside {
       display: none;
    }
@@ -187,19 +248,24 @@ a:hover {
    article + aside + header {
       /*          100vh - article width      - padding * 4 (for left and right padding of 2 elements) */
       width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+      margin-right: 0;
+   }
+
+   article + aside + header > nav {
+      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 2));
    }
 }
 
 /* hide the header when smaller than a desktop, and center the article (~< ipad tablet max portrait width 1024) */
-@media (max-width: 1022px){
+@media (max-width: 1022px) {
    article ~ header {
       display: none;
    }
 
    article {
-      margin: 0 auto;
-      width: calc(var(--max-article) - var(--safe-area-inset-left));
+      width: calc(100vw - var(--safe-area-inset-left) - var(--safe-area-inset-right));
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+      max-width: initial;
    }
 
    article > nav {
@@ -209,6 +275,10 @@ a:hover {
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
       width: calc(100% - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+   }
+
+   article + aside + header > nav {
+      width: 100%;
    }
 }
 
@@ -223,6 +293,7 @@ a:hover {
    aside + header {
       width: calc(100vw - calc(var(--uom) * 2));
       position: initial;
+      margin-right: 0;
    }
 
    aside {
@@ -238,6 +309,9 @@ a:hover {
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
       margin-left: calc(calc(var(--safe-area-inset-left) * -1) - var(--uom));
+   }
+   aside + header > nav {
+      width: 100%;
    }
 }
 
@@ -298,4 +372,19 @@ aside,
 article { /* Hide scrollbar for IE, Edge and Firefox */
    -ms-overflow-style: none;  /* IE and Edge */
    scrollbar-width: none;  /* Firefox */
+}
+
+/* Print styles */
+@media print {
+   article > nav,
+   header,
+   article + aside {
+      display: none !important;
+   }
+
+   article {
+      width: initial;
+      max-width: initial;
+      padding-top: var(--uom);
+   }
 }
