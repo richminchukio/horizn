@@ -360,6 +360,11 @@ header > nav > a:active {
       width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
    }
+
+   header > picture > img {
+      position: fixed;
+   }
+
    aside > nav {
       width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
