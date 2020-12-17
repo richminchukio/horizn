@@ -62,14 +62,14 @@ h4 {
 
 h5 {
    font-size: 80%;
-   margin: calc(var(--uom) * .85) 0 0 .2rem;
-   border-left: #aaa solid .2rem;
+   margin: calc(var(--uom) * .85) 0 0 0;
+   border-left: #aaa solid .3rem;
    line-height: calc(100% * 1.5);
 }
 
 h6 {
    font-size: 70%;
-   margin: calc(var(--uom) * .75) 0 0 .2rem;
+   margin: calc(var(--uom) * .75) 0 0 0;
    line-height: calc(100% * 1.5);
    border-left: #aaa solid .6rem;
 }
@@ -232,8 +232,7 @@ aside > ol > li:last-child {
 
 article > blockquote {
    margin: initial;
-   margin-left: .2rem;
-   border-left: #3f9be6 solid .2rem;
+   border-left: #3f9be6 solid .3rem;
    padding-left: 1rem;
 }
 
