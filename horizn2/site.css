@@ -1,4 +1,15 @@
-﻿/* general styling */
+﻿:root {
+   --dark-article-background: #22222aff;
+   --dark-article-color: #ddddddff;
+   --dark-aside-backdrop-filter: blur(8px);
+   --dark-aside-background: #00000044;
+   --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
+   --dark-nav-fixed-background: #32353e;
+   --dark-nav-fixed-color: #ffffffff;
+   --dark-nav-transparent-background: #302d5247;
+}
+
+/* general styling */
 
 body {
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -10,27 +21,8 @@ body {
    word-break: break-word;
 }
 
-@media (max-width: 1022px) {
-   article > p.imgContainer {
-      width: auto;
-      margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
-      margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
-   }
-}
-
-article > p.imgContainer > img {
-   width: 100%;
-   max-height: calc(101vh - calc(var(--uom) * 3.5));
-   min-width: 100%;
-   object-fit: cover;
-   object-position: 50% 50%;
-}
-
 code, kbd, pre, samp {
    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
-}
-
-h1, h2, h3, h4, h5, h6, p, blockquote {
 }
 
 h1, h2, h3 {
