@@ -5,7 +5,7 @@
    --dark-article-background: #222222ff;
    --dark-article-color: #ddddddff;
    --dark-aside-backdrop-filter: blur(8px);
-   --dark-aside-background: #00000022;
+   --dark-aside-background: #000000bb;
    --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
    --dark-nav-fixed-background: #191919;
    --dark-nav-fixed-color: #ffffffff;
@@ -13,11 +13,11 @@
    --light-article-background: #ffffffff;
    --light-article-color: #111111ff;
    --light-aside-backdrop-filter: blur(8px);
-   --light-aside-background: #ffffff66;
+   --light-aside-background: #ffffffbb;
    --light-aside-text-shaddow: 0px 0px 20px #ffffffff;
    --light-nav-fixed-background: #f5f5f5;
-   --light-nav-fixed-color: #ffffffff;
-   --light-nav-transparent-background: #ffffff33;
+   --light-nav-fixed-color: #3387CC;
+   --light-nav-transparent-background: #ffffffbb;
    --light-link: #3387CC;
    --dark-link: #2573b3;
    --safe-area-inset-top: env(safe-area-inset-top, 0px);
@@ -55,7 +55,7 @@ aside,
 article {
    border: 0;
    margin: 0;
-   padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) var(--uom) calc(var(--uom) + var(--safe-area-inset-bottom)) var(--uom);
+   padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom) + var(--safe-area-inset-left));
 }
 
 header {
@@ -84,6 +84,7 @@ header > picture > img {
    right: 0px;
    z-index: -1;
    height: 100%;
+   min-height: 100vh;
    width: 100%;
    object-fit: cover;
 }
@@ -296,7 +297,7 @@ header > nav > a:active {
 }
 
 /* the width of a tablet in landscape (and lower): hide the aside, override width of header to account for hidden aside */
-@media (max-width: 1700px) {
+@media (max-width: 18in) {
    article + aside {
       display: none;
    }
@@ -313,7 +314,7 @@ header > nav > a:active {
 }
 
 /* hide the header when smaller than a desktop, and center the article (~< ipad tablet max portrait width 1024) */
-@media (max-width: 1022px) {
+@media (max-width: 10.5in) {
    article ~ header {
       display: none;
    }
@@ -351,7 +352,7 @@ header > nav > a:active {
 /* mobile portrait gets stacked (header/aside).
    mobile landscape (on a very small screen) gets stacked too,
    to achieve this we: unset position sticky and change the flex-flow */
-@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 7.5in) {
+@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
    body {
       flex-flow: row-reverse wrap-reverse;
    }

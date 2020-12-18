@@ -1,12 +1,12 @@
 ﻿:root {
-   --dark-article-background: #22222aff;
+   /* --dark-article-background: #253236;
    --dark-article-color: #ddddddff;
    --dark-aside-backdrop-filter: blur(8px);
-   --dark-aside-background: #00000044;
+   --dark-aside-background: #0d181bba;
    --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
-   --dark-nav-fixed-background: #32353e;
+   --dark-nav-fixed-background: #2e3a3e;
    --dark-nav-fixed-color: #ffffffff;
-   --dark-nav-transparent-background: #302d5247;
+   --dark-nav-transparent-background: #2d4b5247; */
 }
 
 /* general styling */
@@ -122,12 +122,16 @@ input.ghkSubscribeInput {
 }
 
 /* header styling */
-header > picture > img {
+aside + header > picture > img {
    object-position: 100% 20%;
 }
 
-@media (max-width: 1700px) {
-   header > picture > img {
+article + aside + header > picture > img {
+   object-position: 57% 20%;
+}
+
+@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
+   aside + header > picture > img {
       object-position: 57% 20%;
    }
 }
@@ -140,7 +144,7 @@ header > picture > img {
 
 header > div {
    position: absolute; 
-   bottom: calc(var(--uom) + var(--safe-area-inset-bottom));
+   bottom: var(--uom); /*calc(var(--uom) + var(--safe-area-inset-bottom));*/
    left: calc(var(--uom) + var(--safe-area-inset-left));
 }
 
@@ -155,20 +159,6 @@ header > div > p:first-of-type {
    font-weight: 400;
    margin-top: 0rem;
    color: white;
-}
-
-@media (orientation: portrait) {
-   body.mobile.safari > header > div {
-      bottom: calc(var(--safari-vh-offset-iphone-portrait) + var(--uom));
-   }
-}
-@media (orientation: landscape) {
-   body.mobile.safari > header > div {
-      bottom: var(--uom);
-   }
-}
-body.tablet.safari > header > div {
-   bottom: var(--uom);
 }
 
 /* copy/paste article content in dark mode produces bad paste styles. */
@@ -273,7 +263,7 @@ article ul {
    #horizn-article-open:checked ~ .horizn-container { --nav-bottom-margin: 1rem; }
    .horizn-timeline > nav { background-color: transparent; display: none; }
 } */
-@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 7.5in), (orientation: landscape) and (max-height: 5in) { /* 414px 480px */
+@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in), (orientation: landscape) and (max-height: 5in) { /* 414px 480px */
    body > article > h1 { padding-top: calc(var(--uom) * 1); }
 }
 
