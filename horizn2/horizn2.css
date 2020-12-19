@@ -55,19 +55,29 @@ aside,
 article {
    border: 0;
    margin: 0;
-   padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom) + var(--safe-area-inset-left));
 }
 
 header {
    min-height: calc(100vh - calc(var(--uom) * 2));
    min-height: -webkit-fill-available;
    max-height: calc(100vh - calc(var(--uom) * 2) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5));
+   z-index: 0;
    position: -webkit-sticky;
    position: sticky;
    top: 0;
+   padding-top: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5));
+   padding-bottom: calc(var(--uom) + var(--safe-area-inset-bottom));
    padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   z-index: 0;
-   width: 100vw;
+   padding-right: var(--uom);
+   display: flex;
+   flex-flow: column wrap;
+   justify-content: flex-end;
+   overflow: hidden;
+   width: 100%;
+}
+
+aside + header {
+   padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
 }
 
 header > *:not(nav, picture) {
@@ -101,19 +111,19 @@ article > nav {
    user-select: none !important; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
  }
 
-article ~ header {
-   /*          100vh - article width      - padding * 4 (for left and right padding of 2 elements) */
-   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
-}
-
 aside + header {
-   width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left));
+   width: calc(100vw - calc(var(--uom) * 4) - var(--safe-area-inset-left) - var(--max-aside));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
 }
 
 article + aside + header {
-   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   width: calc(100vw - var(--max-article) - var(--max-aside) - calc(var(--uom) * 6) - var(--safe-area-inset-left));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
+}
+
+article ~ header {
+   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   margin-right: 0;
 }
 
 aside {
@@ -125,6 +135,7 @@ aside {
    background-color: var(--light-aside-background);
    -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
    backdrop-filter: var(--light-aside-backdrop-filter);
+   padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom));
 }
 
 aside *:not(nav, pre, code, ol, ul, li) {
@@ -166,7 +177,7 @@ article {
    min-height: -webkit-fill-available;
    width: 100%;
    max-width: calc(var(--max-article) - var(--safe-area-inset-right));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom));
 }
 
 article > *:not(nav) {
@@ -178,10 +189,10 @@ article > *:not(nav) {
 /* navigation bar styling */
 nav {
    margin: calc(calc(var(--safe-area-inset-top) * -1) - var(--uom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5)) calc(var(--uom) * -1) var(--uom) calc(var(--uom) * -1);
-   padding: calc(var(--uom) + var(--safe-area-inset-top)) var(--uom) var(--uom) var(--uom);
+   padding: calc(var(--uom) + var(--safe-area-inset-top)) calc(var(--uom) + var(--safe-area-inset-right)) var(--uom) calc(var(--uom) + var(--safe-area-inset-left));
    height: calc(var(--uom) * 1.5);
    background-color: var(--light-nav-transparent-background);
-   width: 100%;
+   width: calc(100vw - calc(var(--uom) + var(--safe-area-inset-right)) - calc(var(--uom) + var(--safe-area-inset-left)));
    max-width: 100%;
    white-space: nowrap;
    overflow-x: auto;
@@ -220,8 +231,28 @@ nav > :last-child {
 }
 
 header > nav {
-   margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
+   position: fixed;
+   top: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5));
+   left: 0;
    padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+   margin-left: 0;
+   margin-right: 0;
+   z-index: 1;
+}
+
+aside + header > nav {
+   width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
+   padding-right: var(--uom);
+}
+
+article + aside + header > nav {
+   width: calc(100vw - var(--max-aside) - var(--max-article) - calc(var(--uom) * 6));
+   padding-right: var(--uom);
+}
+
+article ~ header > nav {
+   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4));
+   padding-right: var(--uom);
 }
 
 aside > nav {
@@ -232,6 +263,7 @@ aside > nav {
    z-index: 1;
    margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   padding-left: var(--uom);
 }
 
 article + aside > nav {
@@ -249,11 +281,8 @@ article > nav {
    position: sticky;
    top: 0;
    margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
+   padding-left: calc(var(--uom));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-}
-
-aside + header > nav {
-   width: calc(100% - var(--max-aside) - calc(var(--uom) * 2));
 }
 
 /* anchor tag stylings */
@@ -302,14 +331,21 @@ header > nav > a:active {
       display: none;
    }
 
-   article + aside + header {
+   article + aside + header,
+   article ~ header {
       /*          100vh - article width      - padding * 4 (for left and right padding of 2 elements) */
       width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+      padding-right: calc(var(--uom));
       margin-right: 0;
    }
 
-   article + aside + header > nav {
-      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 2));
+   aside + header > nav {
+      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
+   }
+
+   article + aside + header > nav,
+   article ~ header > nav {
+      width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
    }
 }
 
@@ -334,16 +370,12 @@ header > nav > a:active {
       width: calc(100% - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
    }
 
-   article + aside + header > nav {
-      width: 100%;
-   }
-
    article img {
-      width: calc(100% + 2rem + var(--safe-area-inset-left) + var(--safe-area-inset-right));
+      width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
       margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
       margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
-      max-width: calc(100% + 2rem + var(--safe-area-inset-left) + var(--safe-area-inset-right));
-      max-height: calc(101vh - calc(var(--uom) * 3.5));
+      max-width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
+      max-height: calc(101vh - calc(var(--uom) * 3.5) - var(--safe-area-inset-top));
       object-fit: cover;
       object-position: 50% 50%;
    }
@@ -357,23 +389,30 @@ header > nav > a:active {
       flex-flow: row-reverse wrap-reverse;
    }
 
-   aside + header {
+   aside + header,
+   header {
       width: calc(100vw - calc(var(--uom) * 2));
       position: initial;
       margin-right: 0;
+      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+      padding-bottom: var(--uom);
+   }
+
+   aside + header > nav,
+   header > nav {
+      position: absolute;
+      width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+      padding-left: calc(var(--uom) + var(--safe-area-inset-left))
+   }
+
+   header > picture > img {
+      position: fixed;
    }
 
    aside {
       max-width: calc(100vw - calc(var(--uom) * 2));
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   }
-   header > nav {
-      width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   }
-
-   header > picture > img {
-      position: fixed;
    }
 
    aside > nav {
@@ -382,8 +421,9 @@ header > nav > a:active {
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
       margin-left: calc(calc(var(--safe-area-inset-left) * -1) - var(--uom));
    }
-   aside + header > nav {
-      width: 100%;
+
+   article > nav {
+      padding-left: calc(var(--uom) + var(--safe-area-inset-left));
    }
 }
 

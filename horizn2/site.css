@@ -7,6 +7,7 @@
    --dark-nav-fixed-background: #2e3a3e;
    --dark-nav-fixed-color: #ffffffff;
    --dark-nav-transparent-background: #2d4b5247; */
+   --uom: .9rem;
 }
 
 /* general styling */
@@ -122,10 +123,12 @@ input.ghkSubscribeInput {
 }
 
 /* header styling */
+header > picture > img,
 aside + header > picture > img {
    object-position: 100% 20%;
 }
 
+article + header > picture > img,
 article + aside + header > picture > img {
    object-position: 57% 20%;
 }
@@ -141,20 +144,20 @@ article + aside + header > picture > img {
       filter: brightness(80%);
    }
 }
+/* 
+@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
+   header > div {
+      padding-bottom: var(--uom);
+   }
+} */
 
-header > div {
-   position: absolute; 
-   bottom: var(--uom); /*calc(var(--uom) + var(--safe-area-inset-bottom));*/
-   left: calc(var(--uom) + var(--safe-area-inset-left));
-}
-
-header > div > h1 {
+header > h1 {
    text-shadow: 0px 0px 20px #000;
    color: white;
    margin-bottom: calc(var(--uom) * .5);
 }
 
-header > div > p:first-of-type {
+header > p:first-of-type {
    text-shadow: 0px 0px 3px #000;
    font-weight: 400;
    margin-top: 0rem;
