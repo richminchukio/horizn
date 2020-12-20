@@ -20,6 +20,12 @@
    --light-nav-transparent-background: #ffffffbb;
    --light-link: #3387CC;
    --dark-link: #2573b3;
+   --header-h1-color: #ffffff;
+   --header-h1-font-weight: normal;
+   --header-h1-text-shadow: 0px 0px 1.5rem #000;
+   --header-p-color: #ffffff;
+   --header-p-font-weight: 400;
+   --header-p-text-shadow: 0px 0px 0.25rem #000;
    --safe-area-inset-top: env(safe-area-inset-top, 0px);
    --safe-area-inset-right: env(safe-area-inset-right, 0px);
    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
@@ -36,32 +42,20 @@ body {
    padding: 0;
    display: flex;
    flex-flow: row-reverse wrap;
-   -webkit-text-size-adjust: 100%;
    box-sizing: initial; /* box-sizing: border-box does not work with -webkit-fill-available. It could have spared a lot of calc statements, but I tried it, doesn't work. don't bother. */
-   overflow-x: hidden;
-   background-color: var(--light-article-background);
-   color: var(--light-article-color);
+   /* overflow-x: hidden; */
 }
 
-@media screen and (prefers-color-scheme: dark) {
-   body {
-      background-color: var(--dark-article-background);
-      color: var(--dark-article-color);
-   }
-}
-
-header,
-aside,
-article {
-   border: 0;
-   margin: 0;
-}
+/* Horizn Symantic HTML styling */
+/* header */
 
 header {
+   border: 0;
+   margin: 0;
    min-height: calc(100vh - calc(var(--uom) * 2));
    min-height: -webkit-fill-available;
    max-height: calc(100vh - calc(var(--uom) * 2) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5));
-   z-index: 0;
+   z-index: 1;
    position: -webkit-sticky;
    position: sticky;
    top: 0;
@@ -77,87 +71,35 @@ header {
 }
 
 aside + header {
-   padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
-}
-
-header > *:not(nav, picture) {
-   width: auto;
-   max-width: 100%;
-   box-sizing: border-box;
-}
-
-header > picture > img {
-   position: absolute;
-   top: 0px;
-   bottom: 0px;
-   left: 0px;
-   right: 0px;
-   z-index: -1;
-   height: 100%;
-   min-height: 100vh;
-   width: 100%;
-   object-fit: cover;
-}
-
-header,
-aside,
-article > nav {
-   /* https://stackoverflow.com/a/4407335/2969956 */
-   -webkit-touch-callout: none !important; /* iOS Safari */
-   -khtml-user-select: none !important; /* Konqueror HTML */
-   -webkit-user-select: none !important; /* Safari */
-   -moz-user-select: none !important; /* Old versions of Firefox */
-   -ms-user-select: none !important; /* Internet Explorer/Edge */
-   user-select: none !important; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
- }
-
-aside + header {
    width: calc(100vw - calc(var(--uom) * 4) - var(--safe-area-inset-left) - var(--max-aside));
+   padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
 }
 
 article + aside + header {
    width: calc(100vw - var(--max-article) - var(--max-aside) - calc(var(--uom) * 6) - var(--safe-area-inset-left));
+   padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
 }
 
 article ~ header {
    width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   padding-right: var(--uom);
    margin-right: 0;
 }
 
+/* Horizn Symantic HTML styling */
+/* aside */
+
 aside {
+   border: 0;
+   margin: 0;
    width: 100%;
    height: 100%;
    max-width: calc(var(--max-aside) - var(--safe-area-inset-right));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   z-index: 1;
-   background-color: var(--light-aside-background);
-   -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
-   backdrop-filter: var(--light-aside-backdrop-filter);
+   z-index: 2;
    padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom));
-}
-
-aside *:not(nav, pre, code, ol, ul, li) {
-   text-shadow: var(--light-aside-text-shaddow);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-   aside *:not(nav, pre, code, ol, ul, li) {
-      text-shadow: var(--dark-aside-text-shaddow);
-   }
-   aside {
-      background-color: var(--dark-aside-background);
-      -webkit-backdrop-filter: var(--dark-aside-backdrop-filter);
-      backdrop-filter: var(--dark-aside-backdrop-filter);
-   }
-}
-
-aside > *:not(nav),
-article > *:not(nav) * {
-   width: auto;
-   max-width: 100%;
-   box-sizing: border-box;
 }
 
 article + aside {
@@ -172,7 +114,12 @@ article + aside {
    min-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
 }
 
+/* Horizn Symantic HTML styling */
+/* article */
+
 article {
+   border: 0;
+   margin: 0;
    min-height: 100vh;
    min-height: -webkit-fill-available;
    width: 100%;
@@ -180,18 +127,12 @@ article {
    padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom));
 }
 
-article > *:not(nav) {
-   width: auto;
-   max-width: 100%;
-   box-sizing: border-box;
-}
-
 /* navigation bar styling */
+
 nav {
    margin: calc(calc(var(--safe-area-inset-top) * -1) - var(--uom) - calc(var(--uom) * 2) - calc(var(--uom) * 1.5)) calc(var(--uom) * -1) var(--uom) calc(var(--uom) * -1);
    padding: calc(var(--uom) + var(--safe-area-inset-top)) calc(var(--uom) + var(--safe-area-inset-right)) var(--uom) calc(var(--uom) + var(--safe-area-inset-left));
    height: calc(var(--uom) * 1.5);
-   background-color: var(--light-nav-transparent-background);
    width: calc(100vw - calc(var(--uom) + var(--safe-area-inset-right)) - calc(var(--uom) + var(--safe-area-inset-left)));
    max-width: 100%;
    white-space: nowrap;
@@ -200,25 +141,8 @@ nav {
    -webkit-overflow-scrolling: auto;
 }
 
-aside nav,
-article nav {
-   background-color: var(--light-nav-fixed-background);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-   nav {
-      background-color: var(--dark-nav-transparent-background);
-   }
-   aside nav,
-   article nav {
-      background-color: var(--dark-nav-fixed-background);
-   }
-}
-
 nav > a {
    margin: 0;
-   line-height: calc(var(--uom) * 1.5);
-   display: inline-block;
    padding: 0 var(--uom);
 }
 
@@ -230,6 +154,9 @@ nav > :last-child {
    padding-right: 0;
 }
 
+/* navigation bar styling */
+/* header > nav */
+
 header > nav {
    position: fixed;
    top: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5));
@@ -237,7 +164,7 @@ header > nav {
    padding-left: calc(var(--uom) + var(--safe-area-inset-left));
    margin-left: 0;
    margin-right: 0;
-   z-index: 1;
+   z-index: 2;
 }
 
 aside + header > nav {
@@ -255,12 +182,15 @@ article ~ header > nav {
    padding-right: var(--uom);
 }
 
+/* navigation bar styling */
+/* aside > nav */
+
 aside > nav {
    position: -webkit-sticky;
    position: sticky;
    top: 0;
    left: 0;
-   z-index: 1;
+   z-index: 2;
    margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
    padding-left: var(--uom);
@@ -272,9 +202,12 @@ article + aside > nav {
    position: fixed;
    top: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5));
    left: calc(100vw - var(--max-article) - var(--max-aside) - calc(var(--uom) * 3));
-   z-index: 1;
+   z-index: 2;
    width: calc(var(--max-aside));
 }
+
+/* navigation bar styling */
+/* article > nav */
 
 article > nav {
    position: -webkit-sticky;
@@ -285,46 +218,51 @@ article > nav {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
 }
 
-/* anchor tag stylings */
-a,
-a:link,
-a:visited,
-a:active {
-   text-decoration: none;
-   color: var(--light-link);
-   font-weight: 400;
+/* horizn header styles */
+/* part of what makes horizn vaguely interesting is that it looks pretty neat. Looking neat leads to
+   usability concerns, of which I primarily try to address here. IE: styling text over a background image. */
+
+header > picture > img {
+   position: absolute;
+   top: 0px;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+   z-index: -1;
+   height: 100%;
+   min-height: 100vh;
+   width: 100%;
+   object-fit: cover;
 }
 
-a:hover {
-   text-decoration: underline;
+header > h1 {
+   color: var(--header-h1-color);
+   font-weight: var(--header-h1-font-weight);
+   text-shadow: var(--header-h1-text-shadow);
+   margin-bottom: calc(var(--uom) * .5);
 }
 
-@media screen and (prefers-color-scheme: dark) {
-   a,
-   a:link,
-   a:hover,
-   a:visited,
-   a:active {
-      color: var(--dark-link);
-   }
+header > p {
+   color: var(--header-p-color);
+   font-weight: var(--header-p-font-weight);
+   text-shadow: var(--header-p-text-shadow);
 }
 
-header > nav > a:link,
-header > nav > a:hover,
-header > nav > a:visited,
-header > nav > a:active {
-   color: var(--light-nav-fixed-color);
+/* Box Sizing styles. 
+   IE: should help (elements with 100% width + padding) not break the site strucutre. */
+
+header > *:not(nav, picture),
+header > *:not(nav, picture) *,
+aside > *:not(nav),
+aside > *:not(nav) *,
+article > *:not(nav),
+article > *:not(nav) * {
+   width: auto;
+   max-width: 100%;
+   box-sizing: border-box;
 }
 
-@media screen and (prefers-color-scheme: dark) {
-   header > nav > a:link,
-   header > nav > a:hover,
-   header > nav > a:visited,
-   header > nav > a:active {
-      color: var(--dark-nav-fixed-color);
-   }
-}
-
+/* Horizn Symantic HTML styling */
 /* the width of a tablet in landscape (and lower): hide the aside, override width of header to account for hidden aside */
 @media (max-width: 18in) {
    article + aside {
@@ -349,6 +287,7 @@ header > nav > a:active {
    }
 }
 
+/* Horizn Symantic HTML styling */
 /* hide the header when smaller than a desktop, and center the article (~< ipad tablet max portrait width 1024) */
 @media (max-width: 10.5in) {
    article ~ header {
@@ -381,6 +320,7 @@ header > nav > a:active {
    }
 }
 
+/* Horizn Symantic HTML styling */
 /* mobile portrait gets stacked (header/aside).
    mobile landscape (on a very small screen) gets stacked too,
    to achieve this we: unset position sticky and change the flex-flow */
@@ -427,33 +367,18 @@ header > nav > a:active {
    }
 }
 
-/* amp stuff */
-body.amp {
-   display: block;
-}
+/* text selection styles */
 
-body.amp > aside,
-body.amp > header { /* never show the header or aside on an amp page, articles are for amp pages, not the whole site */
-   display: none;
-}
-
-body.amp > article {
-   margin: 0 auto;
-   width: calc(100vw - var(--safe-area-inset-left) - var(--safe-area-inset-right) - calc(var(--uom) * 2));
-   max-width: calc(calc(var(--max-article) * 2) - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-}
-
-body.amp > article > nav {
-   left: 0;
-   right: 0;
-   position: fixed;
-   margin: 0;
-   top: 0;
-   width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+header,
+aside,
+article > nav {
+   /* https://stackoverflow.com/a/4407335/2969956 */
+   -webkit-touch-callout: none !important; /* iOS Safari */
+   -khtml-user-select: none !important; /* Konqueror HTML */
+   -webkit-user-select: none !important; /* Safari */
+   -moz-user-select: none !important; /* Old versions of Firefox */
+   -ms-user-select: none !important; /* Internet Explorer/Edge */
+   user-select: none !important; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* scrollbar stuff that I'm not sure works */
@@ -486,6 +411,35 @@ article { /* Hide scrollbar for IE, Edge and Firefox */
    scrollbar-width: none;  /* Firefox */
 }
 
+/* amp stuff */
+body.amp {
+   display: block;
+}
+
+body.amp > aside,
+body.amp > header { /* never show the header or aside on an amp page, articles are for amp pages, not the whole site */
+   display: none;
+}
+
+body.amp > article {
+   margin: 0 auto;
+   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   width: calc(100vw - var(--safe-area-inset-left) - var(--safe-area-inset-right) - calc(var(--uom) * 2));
+   max-width: calc(calc(var(--max-article) * 2) - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+}
+
+body.amp > article > nav {
+   position: fixed;
+   top: 0;
+   right: 0;
+   left: 0;
+   margin: 0;
+   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+}
+
 /* Print styles */
 @media print {
    article > nav,
@@ -498,5 +452,181 @@ article { /* Hide scrollbar for IE, Edge and Firefox */
       width: initial;
       max-width: initial;
       padding-top: var(--uom);
+   }
+}
+
+/* good default font, line height, and anchor element styles */
+
+body {
+   font-size: var(--uom);
+   font-weight: 300;
+   letter-spacing: calc(var(--uom) * .03 * 1.5);
+   line-height: calc(100% * 1.5);
+   word-break: break-word;
+}
+
+h1,
+h2,
+h3 {
+   margin: var(--uom) 0;
+   font-weight: 500;
+   letter-spacing: calc(var(--uom) * .05 * 1.5);
+}
+
+h1 {
+   font-size: 270%;
+   line-height: calc(100% * 1.1);
+}
+
+h2 {
+   font-size: 190%;
+   line-height: calc(100% * 1.2);
+   text-transform: uppercase;
+}
+
+h3 {
+   font-size: 150%;
+   line-height: calc(100% * 1.3);
+   text-transform: uppercase;
+}
+
+h4 {
+   font-size: 90%;
+   font-weight: 450;
+   letter-spacing: calc(var(--uom) * .045 * 1.5);
+   line-height: calc(100% * 1.4);
+   margin: var(--uom) 0;
+   text-transform: uppercase;
+}
+
+h5,
+h6 {
+   font-weight: 400;
+   letter-spacing: calc(var(--uom) * .04 * 1.5);
+   text-transform: uppercase;
+}
+
+h5 {
+   font-size: 80%;
+   margin: calc(var(--uom) * .85) 0 0 0;
+   line-height: calc(100% * 1.5);
+}
+
+h6 {
+   font-size: 70%;
+   margin: calc(var(--uom) * .75) 0 0 0;
+   line-height: calc(100% * 1.6);
+}
+
+time,
+address {
+   font-size: 80%;
+   line-height: calc(100% * 1.5);
+}
+
+p,
+li,
+blockquote {
+   margin-bottom: var(--uom);
+}
+
+pre, code {
+   font-size: 90%;
+   line-height: calc(100% * 1.3);
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+   text-decoration: none;
+   font-weight: 400;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+/* Horizn color preferences */
+/* IE: prefers-color-scheme: light */
+
+body {
+   background-color: var(--light-article-background);
+   color: var(--light-article-color);
+}
+
+aside {
+   background-color: var(--light-aside-background);
+   -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
+   backdrop-filter: var(--light-aside-backdrop-filter);
+}
+
+aside *:not(nav, pre, code, ol, ul, li) {
+   text-shadow: var(--light-aside-text-shaddow);
+}
+
+nav {
+   background-color: var(--light-nav-transparent-background);
+}
+
+aside nav,
+article nav {
+   background-color: var(--light-nav-fixed-background);
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+   color: var(--light-link);
+}
+
+header > nav > a:link,
+header > nav > a:hover,
+header > nav > a:visited,
+header > nav > a:active {
+   color: var(--light-nav-fixed-color);
+}
+
+/* prefers-color-scheme: dark styles */
+
+@media screen and (prefers-color-scheme: dark) {
+   body {
+      background-color: var(--dark-article-background);
+      color: var(--dark-article-color);
+   }
+
+   aside *:not(nav, pre, code, ol, ul, li) {
+      text-shadow: var(--dark-aside-text-shaddow);
+   }
+   
+   aside {
+      background-color: var(--dark-aside-background);
+      -webkit-backdrop-filter: var(--dark-aside-backdrop-filter);
+      backdrop-filter: var(--dark-aside-backdrop-filter);
+   }
+
+   nav {
+      background-color: var(--dark-nav-transparent-background);
+   }
+
+   aside nav,
+   article nav {
+      background-color: var(--dark-nav-fixed-background);
+   }
+   
+   a,
+   a:link,
+   a:hover,
+   a:visited,
+   a:active {
+      color: var(--dark-link);
+   }
+
+   header > nav > a:link,
+   header > nav > a:hover,
+   header > nav > a:visited,
+   header > nav > a:active {
+      color: var(--dark-nav-fixed-color);
    }
 }

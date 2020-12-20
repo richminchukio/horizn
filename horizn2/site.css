@@ -14,73 +14,20 @@
 
 body {
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-   font-size: var(--uom);
-   font-weight: 300;
-   letter-spacing: calc(var(--uom) * .03 * 1.5);
-   line-height: calc(100% * 1.5);
-   margin: 0;
-   word-break: break-word;
 }
 
 code, kbd, pre, samp {
    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
-h1, h2, h3 {
-   margin: var(--uom) 0;
-   font-weight: 500;
-   letter-spacing: calc(var(--uom) * .05 * 1.5);
-}
-
-h1 {
-   font-size: 270%;
-   font-weight: 500;
-   line-height: calc(100% * 1.1);
-}
-
-h2 {
-   font-size: 150%;
-   font-weight: 500;
-   line-height: calc(100% * 1.2);
-   text-transform: uppercase;
-}
-
-h3 {
-   font-size: 115%;
-   font-weight: 500;
-   line-height: calc(100% * 1.3);
-   text-transform: uppercase;
-}
-
-h4 {
-   font-size: 90%;
-   font-weight: 450;
-   letter-spacing: calc(var(--uom) * .045 * 1.5);
-   margin: var(--uom) 0;
-   text-transform: uppercase;
-   line-height: calc(100% * 1.4);
-}
-
 h5 {
-   font-size: 80%;
-   margin: calc(var(--uom) * .85) 0 0 0;
    border-left: #aaa solid .3rem;
-   line-height: calc(100% * 1.5);
+   padding-left: 1rem;
 }
 
 h6 {
-   font-size: 70%;
-   margin: calc(var(--uom) * .75) 0 0 0;
-   line-height: calc(100% * 1.5);
    border-left: #aaa solid .6rem;
-}
-
-h5, h6 {
    padding-left: 1rem;
-   font-weight: 400;
-   letter-spacing: calc(var(--uom) * .04 * 1.5);
-   line-height: calc(100% * 1.5);
-   text-transform: uppercase;
 }
 
 blockquote > h5,
@@ -90,19 +37,6 @@ blockquote > h6 {
    padding-right: 0;
    border-left: 0;
    text-transform: initial;
-}
-
-time {
-   font-size: 80%;
-}
-
-p, li, blockquote {
-   margin-bottom: var(--uom);
-}
-
-pre, code {
-   font-size: 90%;
-   line-height: calc(100% * 1.3);
 }
 
 button, input, optgroup, select, textarea {
@@ -144,38 +78,6 @@ article + aside + header > picture > img {
       filter: brightness(80%);
    }
 }
-/* 
-@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
-   header > div {
-      padding-bottom: var(--uom);
-   }
-} */
-
-header > h1 {
-   text-shadow: 0px 0px 20px #000;
-   color: white;
-   margin-bottom: calc(var(--uom) * .5);
-}
-
-header > p:first-of-type {
-   text-shadow: 0px 0px 3px #000;
-   font-weight: 400;
-   margin-top: 0rem;
-   color: white;
-}
-
-/* copy/paste article content in dark mode produces bad paste styles. */
-/* ::selection {
-   background-color: black !important;
-   color: white !important;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-   *::selection {
-      background: white !important;
-      color: black !important;
-   }
-} */
 
 /* aside styles */
 
@@ -221,7 +123,7 @@ aside > ol > li:last-child {
    margin-bottom: 0;
 }
 
-/* sheet styling */
+/* article styles */
 
 article > blockquote {
    margin: initial;
