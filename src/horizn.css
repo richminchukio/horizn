@@ -9,7 +9,7 @@
    --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
    --dark-nav-fixed-background: #191919;
    --dark-nav-fixed-color: #ffffffff;
-   --dark-nav-transparent-background: #00000033;
+   --dark-nav-transparent-background: #000000bb;
    --light-article-background: #ffffffff;
    --light-article-color: #111111ff;
    --light-aside-backdrop-filter: blur(8px);
@@ -18,8 +18,8 @@
    --light-nav-fixed-background: #f5f5f5;
    --light-nav-fixed-color: #3387CC;
    --light-nav-transparent-background: #ffffffbb;
-   --light-link: #3387CC;
-   --dark-link: #2573b3;
+   --light-accent-color: #3387CC;
+   --dark-accent-color: #2573b3;
    --header-h1-color: #ffffff;
    --header-h1-font-weight: normal;
    --header-h1-text-shadow: 0px 0px 1.5rem #000;
@@ -463,6 +463,11 @@ body {
    letter-spacing: calc(var(--uom) * .03 * 1.5);
    line-height: calc(100% * 1.5);
    word-break: break-word;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+code, kbd, pre, samp {
+   font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
 h1,
@@ -479,7 +484,7 @@ h1 {
 }
 
 h2 {
-   font-size: 190%;
+   font-size: 215%;
    line-height: calc(100% * 1.2);
    text-transform: uppercase;
 }
@@ -508,13 +513,13 @@ h6 {
 
 h5 {
    font-size: 80%;
-   margin: calc(var(--uom) * .85) 0 0 0;
+   margin: calc(var(--uom) * .85) 0;
    line-height: calc(100% * 1.5);
 }
 
 h6 {
    font-size: 70%;
-   margin: calc(var(--uom) * .75) 0 0 0;
+   margin: calc(var(--uom) * .75) 0;
    line-height: calc(100% * 1.6);
 }
 
@@ -527,7 +532,11 @@ address {
 p,
 li,
 blockquote {
-   margin-bottom: var(--uom);
+   margin: 0 0 var(--uom) 0;
+}
+
+blockquote {
+   padding-left: var(--uom);
 }
 
 pre, code {
@@ -574,11 +583,15 @@ article nav {
    background-color: var(--light-nav-fixed-background);
 }
 
+blockquote {
+   border-left: var(--light-accent-color) solid .3rem;
+}
+
 a,
 a:link,
 a:visited,
 a:active {
-   color: var(--light-link);
+   color: var(--light-accent-color);
 }
 
 header > nav > a:link,
@@ -614,13 +627,17 @@ header > nav > a:active {
    article nav {
       background-color: var(--dark-nav-fixed-background);
    }
+
+   blockquote {
+      border-left: var(--dark-accent-color) solid .2rem;
+   }
    
    a,
    a:link,
    a:hover,
    a:visited,
    a:active {
-      color: var(--dark-link);
+      color: var(--dark-accent-color);
    }
 
    header > nav > a:link,
