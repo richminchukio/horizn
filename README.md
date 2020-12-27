@@ -1,4 +1,4 @@
-# Horizn (2.0.0-rc1, #beta)
+# Horizn (2.0.0, #beta)
 
 ## What is Horizn?
 
@@ -12,7 +12,7 @@ Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).
 
 Horizn is not a CSS framework, it is a CSS strategy for handling devices of many sizes. The underlying style system relies on CSS sibling selectors to determine the view the user will get back. Since Horizn was developed with blogging in mind, it can represent two states; (HTML `<article>` element present): a visitor reading a blog article, and (HTML `<article>` element not present): a visitor not reading a blog article.
 
-Simply leave out the `<article>` element when there is no blog article to display, and horizn resize the remaining content accordingly. Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte.
+Simply leave out the `<article>` element when there is no blog article to display, and horizn will resize the remaining content accordingly. Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte.
 
 ### The Moving Parts
 
@@ -47,7 +47,7 @@ Only the most important content for the size and orientation of your device is s
 
 > **Gotchas** 
 > 
-> In almost all scenarios, the `<article>` element must be removed from the DOM in order to see the `<aside>` or `<header>` elements. ***ALWAYS*** provide a way for the user to remove the `<article>` element, be it through the dom, or through forward/backward navigation. The ability to remove the article element is baked into the article navigation within the `./resources/template.htm` file in this repository.
+> In almost all scenarios, the `<article>` element must be removed from the DOM in order to see the `<aside>` or `<header>` elements. ***ALWAYS*** provide a way for the user to remove the `<article>` element, be it through the dom, or through forward/backward navigation. The ability to remove the article element is baked into the article navigation within the `./src/template.htm` file in this repository.
 
 ---
 
