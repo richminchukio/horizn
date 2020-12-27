@@ -1,75 +1,124 @@
-# Horizn
+# Horizn (2.0.0-rc1, #beta)
 
-###### A landscape focused strategy for blogging. 
+## What is Horizn?
 
-Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. Showing your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).
+### A landscape focused strategy for blogging.
 
-###### Features, State, and Technical Deatils
+Horizn's focus is to make the web's digital publication format more paletable to users of all device sizes. It also pays a great deal of attention to semantic HTML. Horizn shows your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in.
 
-Horizn is less of a framework, and more of a strategy for handling different device types. Since Horizn was developed with blogging in mind, it can represent two states, a visitor reading an article, or not reading an article. The underlying style system relies heavily on a hidden checkbox to determine the view the user will get back. This provides two states, checked: article open, and unchecked: article closed (For static pages, the checkbox can be defaulted to either state) Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte.
+Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).
 
-###### The Moving Parts
+### Features, State, and Technical Deatils
 
-- `#horizn-article-open` | The checkbox input controlling article state
-- `.horizn-container` | A container required for css grid
-- `header.horizn` | A nice place for an author photo, the name of your blog, and maybe a link to your github
-- `aside.horizn` | The area for your blog feed
-- `article.horizn` | The area your blog article goes
+Horizn is not a CSS framework, it is a CSS strategy for handling devices of many sizes. The underlying style system relies on CSS sibling selectors to determine the view the user will get back. Since Horizn was developed with blogging in mind, it can represent two states; (HTML `<article>` element present): a visitor reading a blog article, and (HTML `<article>` element not present): a visitor not reading a blog article.
 
-###### But what shows and when?
+Simply leave out the `<article>` element when there is no blog article to display, and horizn resize the remaining content accordingly. Horizn has no dependencies on JavaScript, and future itterations of Horizn will not require JS. Any additional JS features will be a la carte.
 
-That's a realy good question. What shows is only the most important content for the scale and orientation of your device. There are 5 different scenarios covering 12 posibile device sizes, orientations, and states.
+### The Moving Parts
 
-|                    | *ARTICLE OPEN*                                     | *ARTICLE CLOSED*                         |
-|:------------------ |:-------------------------------------------------- |:---------------------------------------- |
-| **LANDSCAPE**      |                                                    |                                          |
-| Handheld / Mobile  | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
-| Medium / Tablet    | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
-| Large / Desktop    | 3 col(s): leadin, timeline, then Article           | 2 col(s): leadin next to timeline        |
-| **PORTRAIT**       |                                                    |                                          |
-| Handheld / Mobile  | 1 col(s): Article only                             | 1 col(s): colapsed, leadin over timeline |
-| Medium / Tablet    | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
-| Large / Pro tablet | 2 col(s): leadin over timeline next to the Article | 2 col(s): leadin next to timeline        |
+There are three main html elements that drive the layout of Horizn. *They are required to be immediate children of the body element, and are required to be in the following order:*
 
-###### A working example
+1. `<article>` - The area your blog article goes (optional)
+2. `<aside>` - The area for your blog feed. IE: a timeline of article links
+3. `<header>` - A nice place for an author photo, the name of your blog, and maybe a link to your github
+
+### What shows and when?
+
+Only the most important content for the size and orientation of your device is shown. There are 5 different scenarios covering 12 posibile device sizes, orientations, and states.
+
+> | **KEY** | |
+> |---:|:---|
+> | "`<article>` Only" | only the article element is visible |
+> | "`<header>` Over `<aside>`" | The header element is stacked on top of the aside |
+> | "`<header>`, `<aside>`" | the aside element is pinned right of the header element |
+> | "`<header>`, `<article>`" | the article element is pinned right of the header element |
+> | "`<header>`, `<aside>`, `<article>`" | the aside element is pinned right of the header element, followed by the article element |
+
+|                   | *ARTICLE ELEMENT PRESENT*          | *ARTICLE ELEMENT NOT PRESENT*     |
+|:------------------|:-----------------------------------|:----------------------------------|
+| **LANDSCAPE**     |                                    |                                   |
+| Handheld / Mobile | `<article>` Only                   | `<header>` Over `<aside>`         |
+| Medium / Tablet   | `<header>`, `<article>`            | `<header>`, `<aside>`             |
+| Large / Desktop   | `<header>`, `<aside>`, `<article>` | `<header>`, `<aside>`             |
+| **PORTRAIT**      |                                    |                                   |
+| Handheld / Mobile | `<article>` Only                   | `<header>` Over `<aside>`         |
+| Medium / Tablet   | `<article>` Only                   | `<header>`, `<aside>`             |
+| Large / Lg Tablet | `<header>`, `<article>`            | `<header>`, `<aside>`             |
+
+> **Gotchas** 
+> 
+> In almost all scenarios, the `<article>` element must be removed from the DOM in order to see the `<aside>` or `<header>` elements. ***ALWAYS*** provide a way for the user to remove the `<article>` element, be it through the dom, or through forward/backward navigation. The ability to remove the article element is baked into the article navigation within the `./resources/template.htm` file in this repository.
+
+---
+
+## Technical
+
+### A working example
 
 [richminchuk.io](http://richminchuk.io) is the dev site for my personal bloging utility, [GHK](https://github.com/rjminchuk/ghk).
 
-###### The minimum layout 
+Or try it out for yourself. Clone this repo, docker build and run a horizn example.
+
+```sh
+docker build -t horizn .
+docker run -p 8080:80 horizn
+```
+
+### How can I add Horizn to a new project?
+
+`horizn` is available as a node package. Install it and copy it to your publish directory.
+
+```sh
+npm install horizn
+mkdir -p ./wwwroot/dist/horizn/css/
+cp ./node_modules/horzin/dist/ ./wwwroot/dist/horizn/css/
+```
+
+### The minimum layout 
 
 ```html
 <!DOCTYPE html>
 <html>
    <head>
-      <link rel="stylesheet" href="/css/horizn.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover" />
+      <link rel="stylesheet" href="./dist/horizn/css/horizn.css">
    </head>
    <body>
-      <input type="checkbox" id="horizn-article-open">
-      <div class="horizn-container">
-         <div class='horizn-leadin'>
-            <!-- <h1>site name</h1> -->
-         </div>
-         <div class='horizn-timeline'>
-            <!-- <label for="horizn-article-open"><h3>2017.12.15</h3></label>
-                 <p>Unit Testing on MacOS /&nbsp;Windows</p>
-                 <label for="horizn-article-open"><h3>2017.04.09</h3></label>
-                 <p>Creating a dotnet core NuGet&nbsp;Package</p> -->
-         </div>
-         <div class='horizn-sheet'>
-            <!-- <p><label for="horizn-article-open">close</label></p>
-                 <h2>Article Title</h2>
-                 <p>Article body.</p> -->
-         </div>
-      </div>
+      <article>
+         <nav>
+            <a href="#">article specific navigation</a>
+         </nav>
+         <h1>Your Article Title</h1>
+         <p>Your article content</p>
+      </article>
+      <aside>
+         <nav>
+            <a href="#">aside (or sidebar) specific navigation</a>
+         </nav>
+         <ol>
+            <li>
+               <div><a href="#">A List of Your Articles by Date</a></div>
+               <div><time datetime="2020-01-04T00:00:00Z">2020.12.27</time></div>
+               <p>Possibly the SEO description of your article.</p>
+            </li>
+         </ol>
+      </aside>
+      <header>
+         <nav>
+            <a href="#">yourwebsite.com</a>
+            <a href="#">other navigation</a>
+         </nav>
+         <picture>
+            <img src="./resources/pexels-lucas-allmann-442559.jpg" alt="Photo by Lucas Allmann from Pexels of a man looking out into the wilderness">
+            <!-- https://www.pexels.com/photo/adult-adventure-backpack-daylight-442559/ -->
+         </picture>
+         <h1>Your Website Name Here</h1>
+         <p>A tagline for your website.</p>
+      </header>
    </body>
 </html>
 ```
 
-###### When should I not use Horizn?
+### When should I not use Horizn?
 
-Horizn uses CSS Grid, making it a bad fit for legacy browser support.
-
-# todo
-- make available as NuGet package
-- Add instructions for `dotnet add package horizn`
-- Add contributing.md
+Horizn uses flexbox without browser prefixes & uses the CSS `calc()` function extensively, making it a bad fit for legacy browser support.
