@@ -2,17 +2,19 @@
 
 ```sh
 # Make code changes
-# Increment NPM package.json semantic version (major.minor.patch)
-# git commit
-# Create pull request to main
-# Merge to main
-# git checkout main
-# npm login
-# npm publish ./ --tag beta --dry-run
-# npm publish ./ --tag beta
+git commit
+git push
+# Increment NPM package.json semantic version (major.minor.patch) and git commit / tag with:
+npm version prepatch
+git push --tags
+npm login
+npm publish ./ --tag beta --dry-run
+npm publish ./ --tag beta
 # Test:
-   # docker build -t horizn .; docker run -p 8080:80 horizn;
-# git tag -v <npm-version>
-# git push --tags
-# npm publish ./ --tag stable
+docker build -t horizn .; docker run -p 8080:80 horizn;
+# release for real:
+npm version patch
+git push --tags
+npm login
+npm publish ./ --tag stable
 ```
