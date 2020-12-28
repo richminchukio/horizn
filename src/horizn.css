@@ -100,6 +100,7 @@ aside {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
    z-index: 2;
    padding: calc(var(--uom) + var(--safe-area-inset-top) + calc(var(--uom) * 2) + calc(var(--uom) * 1.5)) calc(var(--uom) + var(--safe-area-inset-right)) calc(var(--uom) + var(--safe-area-inset-bottom)) calc(var(--uom));
+   min-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
 }
 
 article + aside {
@@ -111,7 +112,6 @@ article + aside {
    overflow: scroll;
    max-width: var(--max-aside);
    padding-right: var(--uom);
-   min-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
 }
 
 /* Horizn Symantic HTML styling */
