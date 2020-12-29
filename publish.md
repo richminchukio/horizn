@@ -14,7 +14,7 @@ npm publish ./ --tag beta
 docker build --no-cache --tag horizn .; docker run --rm --publish 8080:80 horizn;
 # release for real:
 npm version patch
-git push --tags
+git push --follow-tags
 npm login
 npm publish ./ --tag stable
 ```
