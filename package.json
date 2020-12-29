@@ -1,6 +1,6 @@
 {
    "name": "horizn",
-   "version": "2.0.0-1",
+   "version": "2.0.0-2",
    "description": "Horizn's focus is to make the web's digital publication format (blogs) more paletable to users of all device sizes. It also pays a great deal of attention to semantic HTML. Horizn shows your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).",
    "main": "horizn.css",
    "scripts": {
