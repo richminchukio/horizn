@@ -1,8 +1,8 @@
-FROM node:14 AS node
+FROM node:14-alpine AS node
 ARG HORIZN_VERSION=beta
 RUN npm --loglevel=error install code-prettify normalize.css horizn@${HORIZN_VERSION}
 
-FROM nginx
+FROM nginx:stable-alpine
 WORKDIR /usr/share/nginx/html
 RUN mkdir -p ./dist/code-prettify/css ./dist/horizn/css ./dist/normalize.css/css ./resources;
 COPY --from=node /node_modules/code-prettify/src/prettify.css ./dist/code-prettify/css/
