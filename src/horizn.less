@@ -369,8 +369,9 @@ article > *:not(nav) * {
 
 /* text selection styles */
 
-header,
-aside,
+header > nav,
+header > picture > img,
+aside > nav,
 article > nav {
    /* https://stackoverflow.com/a/4407335/2969956 */
    -webkit-touch-callout: none !important; /* iOS Safari */
@@ -382,6 +383,7 @@ article > nav {
 }
 
 /* scrollbar stuff that I'm not sure works */
+
 body::-webkit-scrollbar-track {
    box-shadow: inset 0 0 6px rgba(0,0,0,.1);
    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
@@ -412,6 +414,7 @@ article { /* Hide scrollbar for IE, Edge and Firefox */
 }
 
 /* amp stuff */
+
 body.amp {
    display: block;
 }
@@ -441,6 +444,7 @@ body.amp > article > nav {
 }
 
 /* Print styles */
+
 @media print {
    article > nav,
    header,
