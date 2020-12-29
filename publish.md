@@ -1,7 +1,12 @@
 # Publish Node Package to NPM Registry
 
 ```sh
+git clone git@github.com:rjminchuk/horizn.git
+npm install
 # Make code changes
+# THEN compile LESS to CSS
+npm run lessc
+git add *
 git commit
 # Increment NPM package.json semantic version (major.minor.patch) and git commit / tag with:
 npm version prepatch --message 'prepatch git commit message'
