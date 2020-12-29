@@ -71,7 +71,7 @@ docker run -p 8080:80 horizn
 ```sh
 npm install horizn
 mkdir -p ./wwwroot/dist/horizn/css/
-cp ./node_modules/horzin/dist/ ./wwwroot/dist/horizn/css/
+cp ./node_modules/horzin/src/ ./wwwroot/dist/horizn/css/
 ```
 
 ### The minimum layout 
