@@ -11,7 +11,7 @@ npm login
 npm publish ./ --tag beta --dry-run
 npm publish ./ --tag beta
 # Test:
-docker build -t horizn .; docker run -p 8080:80 horizn;
+docker build -t horizn .; docker run --rm -p 8080:80 horizn;
 # release for real:
 npm version patch
 git push --tags
