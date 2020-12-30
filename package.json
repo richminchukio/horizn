@@ -30,6 +30,6 @@
    "homepage": "https://github.com/rjminchuk/horizn#readme",
    "dependencies": {},
    "devDependencies": {
-      "less": "^3.13.1"
+      "less": "^4.0.0"
    }
 }
