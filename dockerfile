@@ -9,6 +9,7 @@ RUN mkdir -p ./slim/dist/code-prettify/css ./slim/dist/horizn/css ./slim/dist/no
 COPY --from=node /node_modules/normalize.css/normalize.css ./dist/normalize.css/css/
 COPY --from=node /node_modules/code-prettify/src/prettify.css ./dist/code-prettify/css/
 COPY --from=node /node_modules/code-prettify/styles/sunburst.css ./dist/code-prettify/css/
+RUN cp -r ./dist/ ./slim/
 COPY --from=node /node_modules/horizn/dist/css/ ./dist/horizn/css/
 COPY --from=node /node_modules/horizn/dist/css/ ./slim/dist/horizn/css/
 COPY --from=node /node_modules/horizn/src/template.htm ./index.html
