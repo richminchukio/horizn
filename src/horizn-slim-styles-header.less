@@ -1,0 +1,25 @@
+/* horizn header styles */
+/* part of what makes horizn vaguely interesting is that it looks pretty neat. Looking neat leads to
+   usability concerns, of which I primarily try to address here. IE: styling text over a background image. */
+
+:root {
+   --header-h1-color: #ffffff;
+   --header-h1-font-weight: normal;
+   --header-h1-text-shadow: 0px 0px 1.5rem #000;
+   --header-p-color: #ffffff;
+   --header-p-font-weight: 400;
+   --header-p-text-shadow: 0px 0px 0.25rem #000;
+}
+
+header > h1 {
+   color: var(--header-h1-color);
+   font-weight: var(--header-h1-font-weight);
+   text-shadow: var(--header-h1-text-shadow);
+   margin-bottom: calc(var(--uom) * .5);
+}
+
+header > p {
+   color: var(--header-p-color);
+   font-weight: var(--header-p-font-weight);
+   text-shadow: var(--header-p-text-shadow);
+}

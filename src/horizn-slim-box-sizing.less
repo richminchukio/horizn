@@ -1,0 +1,13 @@
+/* Box Sizing styles.
+   IE: should help (elements with 100% width + padding) not break the site strucutre. */
+
+header > *:not(nav, picture),
+header > *:not(nav, picture) *,
+aside > *:not(nav),
+aside > *:not(nav) *,
+article > *:not(nav),
+article > *:not(nav) * {
+   width: auto;
+   max-width: 100%;
+   box-sizing: border-box;
+}

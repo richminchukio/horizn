@@ -122,3 +122,17 @@ cp ./node_modules/horzin/dist/css/ ./wwwroot/dist/horizn/css/
 ### When should I not use Horizn?
 
 Horizn uses flexbox without browser prefixes & uses the CSS `calc()` function extensively, making it a bad fit for legacy browser support.
+
+## Build and try it yourself
+
+if you have docker installed you can easilly run a horizn example yourself at [localhost:8080](http://localhost:8080).
+
+```sh
+git clone git@github.com:rjminchuk/horizn.git
+cd horizn
+npm install
+# translate less to css and minify
+npm run all
+# or debug the latest beta
+npm run docker
+```

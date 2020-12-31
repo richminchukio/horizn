@@ -5,7 +5,7 @@ git clone git@github.com:rjminchuk/horizn.git
 npm install
 # Make code changes
 # THEN compile LESS to CSS
-npm run lessc
+npm run all
 git add *
 git commit
 # Increment NPM package.json semantic version (major.minor.patch) and git commit / tag with:

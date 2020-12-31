@@ -1,0 +1,100 @@
+/* good default font, line height, and anchor element styles */
+
+body {
+   font-size: var(--uom);
+   font-weight: 300;
+   letter-spacing: calc(var(--uom) * .03 * 1.5);
+   line-height: calc(100% * 1.5);
+   word-break: break-word;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+code, kbd, pre, samp {
+   font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+}
+
+h1,
+h2,
+h3 {
+   margin: var(--uom) 0;
+   font-weight: 500;
+   letter-spacing: calc(var(--uom) * .05 * 1.5);
+}
+
+h1 {
+   font-size: 270%;
+   line-height: calc(100% * 1.1);
+}
+
+h2 {
+   font-size: 215%;
+   line-height: calc(100% * 1.2);
+   text-transform: uppercase;
+}
+
+h3 {
+   font-size: 150%;
+   line-height: calc(100% * 1.3);
+   text-transform: uppercase;
+}
+
+h4 {
+   font-size: 90%;
+   font-weight: 450;
+   letter-spacing: calc(var(--uom) * .045 * 1.5);
+   line-height: calc(100% * 1.4);
+   margin: var(--uom) 0;
+   text-transform: uppercase;
+}
+
+h5,
+h6 {
+   font-weight: 400;
+   letter-spacing: calc(var(--uom) * .04 * 1.5);
+   text-transform: uppercase;
+}
+
+h5 {
+   font-size: 80%;
+   margin: calc(var(--uom) * .85) 0;
+   line-height: calc(100% * 1.5);
+}
+
+h6 {
+   font-size: 70%;
+   margin: calc(var(--uom) * .75) 0;
+   line-height: calc(100% * 1.6);
+}
+
+time,
+address {
+   font-size: 80%;
+   line-height: calc(100% * 1.5);
+}
+
+p,
+li,
+blockquote {
+   margin: 0 0 var(--uom) 0;
+}
+
+blockquote {
+   padding-left: var(--uom);
+}
+
+pre, code {
+   font-size: 90%;
+   line-height: calc(100% * 1.3);
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+   text-decoration: none;
+   font-weight: 400;
+}
+
+a:hover {
+   text-decoration: underline;
+}

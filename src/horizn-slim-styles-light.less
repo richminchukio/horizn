@@ -1,0 +1,57 @@
+/* Horizn color preferences */
+/* IE: prefers-color-scheme: light */
+
+:root {
+   --light-accent-color: #3387CC;
+   --light-article-background: #ffffffff;
+   --light-article-color: #111111ff;
+   --light-aside-backdrop-filter: blur(8px);
+   --light-aside-background: #ffffffbb;
+   --light-aside-text-shaddow: 0px 0px 20px #ffffffff;
+   --light-nav-fixed-background: #f5f5f5;
+   --light-nav-fixed-color: #3387CC;
+   --light-nav-transparent-background: #ffffffbb;
+}
+
+body {
+   background-color: var(--light-article-background);
+   color: var(--light-article-color);
+}
+
+aside {
+   background-color: var(--light-aside-background);
+   -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
+   backdrop-filter: var(--light-aside-backdrop-filter);
+}
+
+aside *:not(nav, pre, code, ol, ul, li) {
+   text-shadow: var(--light-aside-text-shaddow);
+}
+
+nav {
+   background-color: var(--light-nav-transparent-background);
+}
+
+aside nav,
+article nav {
+   background-color: var(--light-nav-fixed-background);
+}
+
+blockquote {
+   border-left: var(--light-accent-color) solid calc(var(--uom) * .3);
+}
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+   color: var(--light-accent-color);
+}
+
+header > nav > a:link,
+header > nav > a:hover,
+header > nav > a:visited,
+header > nav > a:active {
+   color: var(--light-nav-fixed-color);
+}

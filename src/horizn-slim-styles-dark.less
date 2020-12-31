@@ -1,0 +1,57 @@
+/* Horizn color preferences */
+/* IE: prefers-color-scheme: dark */
+
+:root {
+   --dark-accent-color: #2573b3;
+   --dark-article-background: #222222ff;
+   --dark-article-color: #ddddddff;
+   --dark-aside-backdrop-filter: blur(8px);
+   --dark-aside-background: #000000bb;
+   --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
+   --dark-nav-fixed-background: #191919;
+   --dark-nav-fixed-color: #ffffffff;
+   --dark-nav-transparent-background: #000000bb;
+}
+
+body {
+   background-color: var(--dark-article-background);
+   color: var(--dark-article-color);
+}
+
+aside {
+   background-color: var(--dark-aside-background);
+   -webkit-backdrop-filter: var(--dark-aside-backdrop-filter);
+   backdrop-filter: var(--dark-aside-backdrop-filter);
+}
+
+aside *:not(nav, pre, code, ol, ul, li) {
+   text-shadow: var(--dark-aside-text-shaddow);
+}
+
+nav {
+   background-color: var(--dark-nav-transparent-background);
+}
+
+aside nav,
+article nav {
+   background-color: var(--dark-nav-fixed-background);
+}
+
+blockquote {
+   border-left: var(--dark-accent-color) solid .2rem;
+}
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+   color: var(--dark-accent-color);
+}
+
+header > nav > a:link,
+header > nav > a:hover,
+header > nav > a:visited,
+header > nav > a:active {
+   color: var(--dark-nav-fixed-color);
+}
