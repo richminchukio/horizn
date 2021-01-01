@@ -3,14 +3,16 @@
 
 :root {
    --dark-accent-color: #2573b3;
+   --dark-accent-invert-color: #ffffff;
    --dark-article-background: #222222ff;
    --dark-article-color: #ddddddff;
    --dark-aside-backdrop-filter: blur(8px);
    --dark-aside-background: #000000bb;
    --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
-   --dark-nav-fixed-background: #191919;
-   --dark-nav-fixed-color: #ffffffff;
+   --dark-nav-opaque-background: #191919;
+   --dark-nav-opaque-color: #ffffff;
    --dark-nav-transparent-background: #000000bb;
+   --dark-nav-transparent-color: #ffffff;
 }
 
 body {
@@ -34,11 +36,11 @@ nav {
 
 aside nav,
 article nav {
-   background-color: var(--dark-nav-fixed-background);
+   background-color: var(--dark-nav-opaque-background);
 }
 
 blockquote {
-   border-left: var(--dark-accent-color) solid .2rem;
+   border-left: var(--dark-accent-color) solid calc(var(--uom) * .3);
 }
 
 a,
@@ -53,5 +55,5 @@ header > nav > a:link,
 header > nav > a:hover,
 header > nav > a:visited,
 header > nav > a:active {
-   color: var(--dark-nav-fixed-color);
+   color: var(--dark-accent-invert-color);
 }

@@ -3,14 +3,16 @@
 
 :root {
    --light-accent-color: #3387CC;
+   --light-accent-invert-color: #111111ff;
    --light-article-background: #ffffffff;
    --light-article-color: #111111ff;
    --light-aside-backdrop-filter: blur(8px);
    --light-aside-background: #ffffffbb;
    --light-aside-text-shaddow: 0px 0px 20px #ffffffff;
-   --light-nav-fixed-background: #f5f5f5;
-   --light-nav-fixed-color: #3387CC;
+   --light-nav-opaque-background: #f5f5f5;
+   --light-nav-opaque-color: #111111ff;
    --light-nav-transparent-background: #ffffffbb;
+   --light-nav-transparent-color: #111111ff;
 }
 
 body {
@@ -34,7 +36,7 @@ nav {
 
 aside nav,
 article nav {
-   background-color: var(--light-nav-fixed-background);
+   background-color: var(--light-nav-opaque-background);
 }
 
 blockquote {
@@ -53,5 +55,5 @@ header > nav > a:link,
 header > nav > a:hover,
 header > nav > a:visited,
 header > nav > a:active {
-   color: var(--light-nav-fixed-color);
+   color: var(--light-accent-invert-color);
 }
