@@ -251,7 +251,7 @@ header > picture > img {
    }
 
    article > nav {
-      position: fixed;
+      position: absolute;
       top: calc(var(--uom) + calc(var(--uom) * 3.5) + var(--safe-area-inset-top));
       left: var(--uom);
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
@@ -310,6 +310,7 @@ header > picture > img {
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
       margin-left: calc(calc(var(--safe-area-inset-left) * -1) - var(--uom));
+      position: relative;
    }
 
    article > nav {
