@@ -12,7 +12,18 @@ Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).
 
 Horizn is not a CSS framework, it is a CSS strategy for handling devices of many sizes. Since Horizn was developed with blogging in mind, it can represent two states; (HTML `<article>` element present): a visitor reading a blog article, and (HTML `<article>` element not present): a visitor not reading a blog article. 
 
- The underlying style system relies on CSS sibling selectors to determine the view the user will get back. Simply leave out the `<article>` element when there is no blog article to display, and horizn will resize the remaining content accordingly. Horizn has no dependencies on JavaScript, and future iterations of Horizn will not require JS. Any additional JS features will be a la carte.
+The underlying style system relies on CSS sibling selectors to determine the view the user will get back. Simply leave out the `<article>` element when there is no blog article to display, and horizn will resize the remaining content accordingly. 
+
+Additional Horizn features:
+
+- A prominent horizontal "hero" image.
+- Full device width images (mobile only) that bleed into device specific inset areas.
+- Thoughtful positioning of hierarchically semantic navigation.
+- Dueling scrollable areas which accentuate article content.
+- Optional article styling. Content that looks and behaves well out of the box for desktop and mobile devices.
+- Built in light (and optionally dark) mode styling.
+
+Horizn has no dependencies on JavaScript, and future iterations of Horizn will not require JS. Any additional JS features will be a la carte.
 
 ### The Moving Parts
 
