@@ -68,7 +68,7 @@ Only the most important content for the size and orientation of your device is s
 
 ### A working example
 
-[richminchuk.io](http://richminchuk.io) is the dev site for my personal blogging utility, [GHK](https://github.com/rjminchuk/ghk).
+[richminchuk.io](https://richminchuk.io) is the dev site for my personal blogging utility, [GHK](https://github.com/rjminchuk/ghk).
 
 Or try it out for yourself. Clone this repository, docker build and run a horizn example web page in nginx.
 
