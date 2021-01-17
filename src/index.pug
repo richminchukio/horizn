@@ -3,8 +3,9 @@ extends layout
 block content
   article
     nav
-      a(href='https://github.com/rjminchuk/horizn') horizn
-    h1= title
+      a(onclick='javascript:document.getElementsByTagName(\'article\')[0].remove()') more articles
+      a(href='#', style='float: right; padding-right: 0;') subscribe
+    h1 Blog Article Title
     div(itemprop='description') A brief overview of what your article is about. I usually make this the same as my SEO description.
     div
       span(itemtype='http://schema.org/Person') 
