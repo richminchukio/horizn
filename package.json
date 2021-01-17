@@ -8,8 +8,8 @@
       "less": "for file in src/*.less; do ./node_modules/less/bin/lessc $file dist/css/$(basename $file | sed -e s/less/css/g); done;",
       "min": "for file in dist/css/*.css; do ./node_modules/clean-css-cli/bin/cleancss --output dist/css/$(basename $file | sed -e s/\\.css/\\.min\\.css/g) $file; done;",
       "all": "./node_modules/npm-run-all/bin/npm-run-all/index.js clean less min",
-      "docker": "npm run all; set -e; docker build --no-cache --tag horizn .; docker run --detach --rm --name horizn --publish 8080:80 horizn; read; docker stop horizn;",
-      "docker-local-files": "npm run all; set -e; docker build --no-cache --build-arg LOCAL=1 --tag horizn .; docker run --detach --rm --name horizn --publish 8080:80 horizn; read; docker stop horizn;"
+      "docker": "npm run all; set -e; docker build --no-cache --tag horizn .; docker run --detach --rm --name horizn --publish 3000:3000 horizn; read; docker stop horizn;",
+      "docker-local-files": "npm run all; set -e; docker build --no-cache --build-arg LOCAL=1 --tag horizn .; docker run --detach --rm --name horizn --publish 3000:3000 horizn; read; docker stop horizn;"
    },
    "repository": {
       "type": "git",

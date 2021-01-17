@@ -1,33 +1,32 @@
 ARG LOCAL=0
 
-FROM node:14-alpine AS node
+FROM node:14-alpine AS base
 ARG HORIZN_VERSION=beta
+WORKDIR /
+RUN npx express-generator app --view pug
+WORKDIR /app
 RUN npm --loglevel=error install normalize.css horizn@${HORIZN_VERSION}
+RUN npm install
+RUN sed s/public/public\'\)\)\)\;\\napp.use\(express.static\(path.join\(__dirname,\ \'node_modules\\/horizn\\/resources/ -i app.js app.js
+RUN sed s/public/public\'\)\)\)\;\\napp.use\(express.static\(path.join\(__dirname,\ \'node_modules\\/horizn\\/dist\\/css/ -i app.js app.js
+RUN sed s/public/public\'\)\)\)\;\\napp.use\(express.static\(path.join\(__dirname,\ \'node_modules\\/normalize.css/ -i app.js app.js
 
-FROM nginx:stable-alpine AS LOCAL0
-WORKDIR /usr/share/nginx/html
-RUN mkdir -p ./dist/horizn/css ./dist/normalize.css/css ./resources;
-RUN mkdir -p ./slim/dist/horizn/css ./slim/dist/normalize.css/css ./slim/resources;
-COPY --from=node /node_modules/normalize.css/normalize.css ./dist/normalize.css/css/
-RUN cp -r ./dist/ ./slim/
-COPY --from=node /node_modules/horizn/dist/css/ ./dist/horizn/css/
-COPY --from=node /node_modules/horizn/dist/css/ ./slim/dist/horizn/css/
-COPY --from=node /node_modules/horizn/src/template.htm ./index.html
-COPY --from=node /node_modules/horizn/src/template-slim.htm ./slim/index.html
-COPY --from=node /node_modules/horizn/resources/ ./resources/
-COPY --from=node /node_modules/horizn/resources/ ./slim/resources/
+FROM base AS LOCAL0
+WORKDIR /app
+RUN cp ./node_modules/horizn/src/index.pug docker ./views
+RUN cp ./node_modules/horizn/src/layout.pug ./views
 
-FROM nginx:stable-alpine AS LOCAL1
-WORKDIR /usr/share/nginx/html
-RUN mkdir -p ./dist/horizn/css ./dist/normalize.css/css ./resources;
-RUN mkdir -p ./slim/dist/horizn/css ./slim/dist/normalize.css/css ./slim/resources;
-COPY --from=node /node_modules/normalize.css/normalize.css ./dist/normalize.css/css/
-COPY ./dist/css/ ./dist/horizn/css/
-COPY ./dist/css/ ./slim/dist/horizn/css/
-COPY ./src/template.htm ./index.html
-COPY ./src/template-slim.htm ./slim/index.html
+FROM base AS LOCAL1
+WORKDIR /app/node_modules/horizn
+RUN mkdir -p ./dist/css ./resources;
+COPY ./dist/css/ ./dist/css/
 COPY ./resources/ ./resources/
-COPY ./resources/ ./slim/resources/
+WORKDIR /app/
+COPY ./src/index.pug ./views
+COPY ./src/layout.pug ./views
 
 FROM LOCAL${LOCAL} AS final
-RUN echo ${LOCAL}
+EXPOSE 3000
+WORKDIR /app
+USER node
+ENTRYPOINT ["node", "./bin/www"]

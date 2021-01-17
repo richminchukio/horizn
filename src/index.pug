@@ -1,0 +1,147 @@
+extends layout
+
+block content
+  article
+    nav
+      a(href='https://github.com/rjminchuk/horizn') horizn
+    h1= title
+    div(itemprop='description') A brief overview of what your article is about. I usually make this the same as my SEO description.
+    div
+      span(itemtype='http://schema.org/Person') 
+        a(href='#', rel='author', itemprop='author') Author Name
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis urna id volutpat lacus laoreet.
+    h2 Habitant 2 - Ut etiam sit amet nisl purus in mollis
+    p Massa eget egestas purus viverra. Nulla pellentesque dignissim enim sit. Quis hendrerit dolor magna eget est.
+    h3 Habitant 3 - Fermentum odio eu feugiat pretium nibh ipsum consequat
+    p Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.
+    h4 Habitant 4 - Augue interdum velit euismod in pellentesque massa
+    p Gravida cum sociis natoque penatibus et. Scelerisque felis imperdiet proin fermentum leo vel orci porta. Enim ut tellus elementum sagittis. 
+    h5 Habitant 5 - Ac tincidunt vitae semper quis lectus nulla at volutpat. In eu mi bibendum neque egestas congue quisque egestas. A erat nam at lectus urna duis convallis convallis.
+    p Scelerisque felis imperdiet proin fermentum leo vel orci porta. Gravida cum sociis natoque penatibus et. Enim ut tellus elementum sagittis. 
+    h6 Habitant 6 - Elementum curabitur vitae nunc sed velit. Turpis egestas integer eget aliquet nibh praesent tristique magna. Amet tellus cras adipiscing enim eu turpis egestas pretium. Euismod quis viverra nibh cras pulvinar. Ornare arcu dui vivamus arcu felis bibendum. In arcu cursus euismod quis viverra nibh cras pulvinar. Cras sed felis eget velit. Massa vitae tortor condimentum lacinia. Dui nunc mattis enim ut. Risus at ultrices mi tempus.
+    p Neque volutpat ac tincidunt vitae. Vulputate mi sit amet mauris commodo quis. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant.
+    img(src='./pexels-tyler-lastovich-2086917.jpg', alt='Photo by Tyler Lastovich from Pexels of a mountain at night')
+    // https://www.pexels.com/photo/mountain-photo-during-nighttime-2086917/
+    <p>Eu tincidunt tortor aliquam nulla. Pellentesque habitant morbi tristique senectus et netus et. Urna condimentum mattis pellentesque id nibh tortor id.</p>
+    blockquote
+       p Vulputate mi sit amet mauris commodo quis. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant.
+    p Quis hendrerit dolor magna eget est. Massa eget egestas purus viverra.
+    ul 
+      li Nulla pellentesque dignissim enim sit
+      li Aenean vel elit scelerisque mauris
+    p 
+      | Massa eget 
+      code egestas --purus
+      | viverra. Nulla pellentesque dignissim enim sit. Quis hendrerit dolor magna eget est.
+    pre
+      | pellentesque --fermentum --leo ./vel
+      | felis --imperdiet --proin
+    p Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.</p>
+    ol 
+      li Vel elit scelerisque mauris
+      li Pellentesque dignissim enim sit
+    p Tristique nulla aliquet enim tortor at auctor urna nunc. Gravida cum sociis natoque penatibus et. Scelerisque felis imperdiet proin fermentum leo vel orci porta. Enim ut tellus elementum sagittis. Interdum velit laoreet id donec ultrices tincidunt. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Orci a scelerisque purus semper. Enim praesent elementum facilisis leo vel fringilla est ullamcorper. Sit amet aliquam id diam. Volutpat sed cras ornare arcu dui vivamus arcu felis.
+  aside
+    nav
+      a(href='#') search
+    ul
+      li
+        div
+          a(href='#') A List of Articles by Date
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.12.27
+        p
+          Possibly the SEO description of your article.
+      li
+        div
+          a(href='#') Malesuada bibendum arcu vitae elementum nec sagittis
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.11.15
+        p
+          Lobortis feugiat vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.
+      li
+        div
+          a(href='#') Bibendum arcu vitae elementum
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.08.05
+        p
+          Feugiat vivamus at sagittis aliquam malesuada augue eget arcu dictum varius. Bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.
+      li
+        div
+          a(href='#') Nec sagittis aliquam malesuada bibendum vivamus at augue eget arcu
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.07.27
+        p
+          Nec sagittis aliquam malesuada bibendum. Vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum.
+      li
+        div
+          a(href='#') Abibendum arcu vitae elementum
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.06.13
+        p
+          Malesuada dictum varius. Sagittis aliquam bibendum. Vivamus at augue eget arcu malesuada bibendum arcu vitae elementum.
+      li
+        div
+          a(href='#') Sagittis aliquam augue
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.05.24
+        p
+          Elementum nec sagittis aliquam malesuada vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum.
+      li
+        div
+          a(href='#') Fermentum leo vel orci porta gravida cum sociis
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.04.18
+        p
+          Malesuada vivamus at elementum nec sagittis aliquam augue eget.
+      li
+        div
+          a(href='#') Felis imperdiet proin fermentum leo vel orci
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.03.19
+        p
+          Scelerisque felis imperdiet proin fermentum leo vel orci porta. Gravida cum sociis natoque penatibus et. Enim ut tellus elementum sagittis.
+      li
+        div
+          a(href='#') Natoque penatibus et enim
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.02.28
+        p
+          Gravida cum sociis natoque penatibus et. Enim ut tellus elementum sagittis.
+      li
+        div
+          a(href='#') Sagittis scelerisque felis imperdiet proin fermentum leo
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.02.02
+        p
+          Enim ut tellus elementum sagittis. Scelerisque felis imperdiet proin fermentum leo vel orci porta.
+      li
+        div
+          a(href='#') Labore et dolore magna aliqua
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.01.28
+        p
+          Sociis natoque penatibus et. Enim ut tellus elementum sagittis.
+      li
+        div
+          a(href='#') Do eiusmod tempor incididunt ut labore et dolore
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.01.20
+        p
+          Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.
+      li
+        div
+          a(href='#') Lobortis feugiat vivamus at augue eget arcu
+        div
+          time(datetime='2020-01-04T00:00:00Z') 2020.01.03
+        p
+          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius. Sagittis aliquam malesuada bibendum arcu vitae elementum. Nec sagittis aliquam malesuada bibendum.
+  header
+    nav
+      a(href='https://github.com/rjminchuk/horizn') horizn
+      a(href='#') other navigation
+    picture
+      img(src='./pexels-lucas-allmann-442559.jpg' alt='Photo by Lucas Allmann from Pexels of a man looking out into the wilderness')
+      // https://www.pexels.com/photo/adult-adventure-backpack-daylight-442559/
+    h1 Website Name
+    p A tagline for your website.
