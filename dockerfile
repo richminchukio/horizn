@@ -8,14 +8,15 @@ WORKDIR /app
 RUN npm --loglevel=error install normalize.css horizn@${HORIZN_VERSION}
 RUN npm install
 
-# FROM base AS LOCAL0
-# ARG SLIM=
-# WORKDIR /app
-# RUN cp ./node_modules/horizn/src/index.pug ./views
-# RUN cp ./node_modules/horizn/src/layout${SLIM}.pug ./views/layout.pug
-# WORKDIR /app/node_modules/horizn
-# RUN npm install
-# RUN npm run publish-public
+FROM base AS LOCAL0
+ARG SLIM=
+WORKDIR /app
+RUN cp -r ./node_modules/horizn/resources ./public
+RUN cp ./node_modules/horizn/src/index.pug ./views
+RUN cp ./node_modules/horizn/src/layout${SLIM}.pug ./views/layout.pug
+WORKDIR /app/node_modules/horizn
+RUN npm install
+RUN npm run publish-public
 
 FROM base AS LOCAL1
 ARG SLIM=
