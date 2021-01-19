@@ -5,7 +5,7 @@ git clone git@github.com:rjminchuk/horizn.git
 npm install
 # Make code changes
 # THEN compile LESS to CSS
-npm run all
+npm run build
 # test
 npm run docker-local-files
 git add *
