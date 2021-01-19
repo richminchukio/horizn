@@ -14,6 +14,7 @@ git commit
 npm version prepatch --message 'prepatch git commit message'
 git push --follow-tags
 npm login
+npm run build
 npm publish ./ --tag beta --dry-run
 npm publish ./ --tag beta
 # Test:

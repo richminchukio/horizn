@@ -144,7 +144,7 @@ git clone git@github.com:rjminchuk/horizn.git
 cd horizn
 npm install
 # translate less to css and minify
-npm run all
+npm run build
 # test the latest beta
 npm run docker
 # or test local changes
