@@ -23,7 +23,9 @@ body {
 aside {
    background-color: var(--light-aside-background);
    -webkit-backdrop-filter: var(--light-aside-backdrop-filter);
-   backdrop-filter: var(--light-aside-backdrop-filter);
+   // Backdrop filter does not play well with chromium browsers. It breaks position:fixed/sticky elements contained within. Add
+   // this back when chromium supports backdrop-filter fully. // https://www.chromestatus.com/feature/5679432723333120#details
+   //backdrop-filter: var(--light-aside-backdrop-filter);
 }
 
 aside *:not(nav, pre, code, ol, ul, li) {
