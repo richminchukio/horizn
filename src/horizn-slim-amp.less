@@ -11,9 +11,7 @@ body.amp > header { // never show the header or aside on an amp page, articles a
 
 body.amp > article {
    margin: 0 auto;
-   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   width: calc(100vw - var(--safe-area-inset-left) - var(--safe-area-inset-right) - calc(var(--uom) * 2));
+   padding-top: calc(calc(var(--uom) * 4.5) + var(--safe-area-inset-left));
    max-width: calc(calc(var(--max-article) * 2) - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
 }
 
