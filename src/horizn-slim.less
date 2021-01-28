@@ -279,10 +279,15 @@ article + aside + header > picture > img {
 @media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
    body {
       flex-flow: row-reverse wrap-reverse;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
    }
 
    header {
       min-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top));
+      min-height: -moz-fill-available;
+      min-height: -webkit-fill-available;
+      min-height: fill-available;
       max-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top));
    }
 
