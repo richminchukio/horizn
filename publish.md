@@ -23,5 +23,5 @@ npm run docker
 npm version patch --message 'patch git commit message'
 git push --follow-tags
 npm login
-npm publish ./ --tag stable
+npm publish ./ --tag latest
 ```
