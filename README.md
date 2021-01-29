@@ -137,7 +137,7 @@ Horizn uses flexbox without browser prefixes & uses the CSS `calc()` function ex
 
 ## Build and try it yourself
 
-if you have docker installed you can easily run a horizn example in nginx yourself at [localhost:8080](http://localhost:8080).
+if you have docker installed you can easily run a horizn example in node yourself at [localhost:3000](http://localhost:3000).
 
 ```sh
 git clone git@github.com:rjminchuk/horizn.git
@@ -148,5 +148,5 @@ npm run build
 # test the latest beta
 npm run docker
 # or test local changes
-npm run docker-local-files
+npm run docker-local
 ```
