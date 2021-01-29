@@ -1,7 +1,7 @@
 {
    "name": "horizn",
    "version": "3.0.1-0",
-   "description": "Horizn's focus is to make the web's digital publication format (blogs) more paletable to users of all device sizes. It also pays a great deal of attention to semantic HTML. Horizn shows your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [GHK](https://github.com/rjminchuk/ghk).",
+   "description": "Horizn's focus is to make the web's digital publication format (blogs) more paletable to users of all device sizes. It also pays a great deal of attention to semantic HTML. Horizn shows your visitors what they need to see, when they need to see it, regardless of what kind of device they are on, or what orientation they are holding it in. Horizn is the default layout for [GHK](https://github.com/richminchukio/ghk).",
    "main": "horizn.css",
    "scripts": {
       "clean": "rm -r dist; mkdir -p dist/css",
@@ -17,7 +17,7 @@
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/rjminchuk/horizn.git"
+      "url": "git+https://github.com/richminchukio/horizn.git"
    },
    "keywords": [
       "horizn",
@@ -34,9 +34,9 @@
    "author": "Rich Minchuk",
    "license": "MIT",
    "bugs": {
-      "url": "https://github.com/rjminchuk/horizn/issues"
+      "url": "https://github.com/richminchukio/horizn/issues"
    },
-   "homepage": "https://github.com/rjminchuk/horizn#readme",
+   "homepage": "https://github.com/richminchukio/horizn#readme",
    "dependencies": {},
    "devDependencies": {
       "clean-css-cli": "^4.3.0",
