@@ -1,18 +1,30 @@
+@light-accent-color: #3387CC;
+@light-accent-invert-color: #111111ff;
+@light-article-background: #ffffffff;
+@light-article-color: #111111ff;
+@light-aside-backdrop-filter: blur(8px);
+@light-aside-background: #ffffffbb;
+@light-aside-text-shaddow: 0px 0px 20px #ffffffff;
+@light-nav-opaque-background: #f5f5f5;
+@light-nav-opaque-color: #111111ff;
+@light-nav-transparent-background: #ffffffbb;
+@light-nav-transparent-color: #111111ff;
+
 // Horizn color preferences
 // IE: prefers-color-scheme: light
 
 :root {
-   --light-accent-color: #3387CC;
-   --light-accent-invert-color: #111111ff;
-   --light-article-background: #ffffffff;
-   --light-article-color: #111111ff;
-   --light-aside-backdrop-filter: blur(8px);
-   --light-aside-background: #ffffffbb;
-   --light-aside-text-shaddow: 0px 0px 20px #ffffffff;
-   --light-nav-opaque-background: #f5f5f5;
-   --light-nav-opaque-color: #111111ff;
-   --light-nav-transparent-background: #ffffffbb;
-   --light-nav-transparent-color: #111111ff;
+   --light-accent-color: @light-accent-color;
+   --light-accent-invert-color: @light-accent-invert-color;
+   --light-article-background: @light-article-background;
+   --light-article-color: @light-article-color;
+   --light-aside-backdrop-filter: @light-aside-backdrop-filter;
+   --light-aside-background: @light-aside-background;
+   --light-aside-text-shaddow: @light-aside-text-shaddow;
+   --light-nav-opaque-background: @light-nav-opaque-background;
+   --light-nav-opaque-color: @light-nav-opaque-color;
+   --light-nav-transparent-background: @light-nav-transparent-background;
+   --light-nav-transparent-color: @light-nav-transparent-color;
 }
 
 body {
@@ -26,10 +38,9 @@ aside {
    // Backdrop filter does not play well with chromium browsers. It breaks position:fixed/sticky elements contained within. Add
    // this back when chromium supports backdrop-filter fully. // https://www.chromestatus.com/feature/5679432723333120#details
    //backdrop-filter: var(--light-aside-backdrop-filter);
-}
-
-aside *:not(nav, pre, code, ol, ul, li) {
-   text-shadow: var(--light-aside-text-shaddow);
+   *:not(nav, pre, code, ol, ul, li) {
+      text-shadow: var(--light-aside-text-shaddow);
+   }
 }
 
 nav {

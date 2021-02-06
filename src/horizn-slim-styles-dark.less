@@ -1,18 +1,30 @@
+@dark-accent-color: #2573b3;
+@dark-accent-invert-color: #ffffff;
+@dark-article-background: #222222ff;
+@dark-article-color: #ddddddff;
+@dark-aside-backdrop-filter: blur(8px);
+@dark-aside-background: #000000bb;
+@dark-aside-text-shaddow: 0px 0px 20px #000000ff;
+@dark-nav-opaque-background: #191919;
+@dark-nav-opaque-color: #ffffff;
+@dark-nav-transparent-background: #000000bb;
+@dark-nav-transparent-color: #ffffff;
+
 // Horizn color preferences
 // IE: prefers-color-scheme: dark
 
 :root {
-   --dark-accent-color: #2573b3;
-   --dark-accent-invert-color: #ffffff;
-   --dark-article-background: #222222ff;
-   --dark-article-color: #ddddddff;
-   --dark-aside-backdrop-filter: blur(8px);
-   --dark-aside-background: #000000bb;
-   --dark-aside-text-shaddow: 0px 0px 20px #000000ff;
-   --dark-nav-opaque-background: #191919;
-   --dark-nav-opaque-color: #ffffff;
-   --dark-nav-transparent-background: #000000bb;
-   --dark-nav-transparent-color: #ffffff;
+   --dark-accent-color: @dark-accent-color;
+   --dark-accent-invert-color: @dark-accent-invert-color;
+   --dark-article-background: @dark-article-background;
+   --dark-article-color: @dark-article-color;
+   --dark-aside-backdrop-filter: @dark-aside-backdrop-filter;
+   --dark-aside-background: @dark-aside-background;
+   --dark-aside-text-shaddow: @dark-aside-text-shaddow;
+   --dark-nav-opaque-background: @dark-nav-opaque-background;
+   --dark-nav-opaque-color: @dark-nav-opaque-color;
+   --dark-nav-transparent-background: @dark-nav-transparent-background;
+   --dark-nav-transparent-color: @dark-nav-transparent-color;
 }
 
 body {
@@ -26,10 +38,9 @@ aside {
    // backdrop filter does not play well with chromium browsers. It breaks <nav> fixed position. Add this back when
    // chromium supports backdrop-filter fully. // https://www.chromestatus.com/feature/5679432723333120#details
    //backdrop-filter: var(--dark-aside-backdrop-filter);
-}
-
-aside *:not(nav, pre, code, ol, ul, li) {
-   text-shadow: var(--dark-aside-text-shaddow);
+   *:not(nav, pre, code, ol, ul, li) {
+      text-shadow: var(--dark-aside-text-shaddow);
+   }
 }
 
 nav {

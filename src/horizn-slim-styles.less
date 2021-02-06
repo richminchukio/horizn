@@ -1,3 +1,5 @@
+@body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@pre-font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 // good default font, line height, and anchor element styles
 
 body {
@@ -6,11 +8,11 @@ body {
    letter-spacing: calc(var(--uom) * .03 * 1.5);
    line-height: calc(100% * 1.5);
    word-break: break-word;
-   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   font-family: @body-font-family;
 }
 
 code, kbd, pre, samp {
-   font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+   font-family: @pre-font-family;
 }
 
 h1,

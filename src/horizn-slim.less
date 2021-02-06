@@ -1,7 +1,15 @@
+@uom: 1rem;
+@max-aside: 4in;
+@max-article: 6.25in;
+@width-desktop: 18in;
+@width-tablet: 10.5in;
+@width-portrait-mobile: 7.5in;
+@width-landscape-mobile: 8.5in;
+
 :root {
-   --uom: 1rem;
-   --max-aside: 4in;
-   --max-article: 6.25in;
+   --uom: @uom;
+   --max-aside: @max-aside;
+   --max-article: @max-article;
    --safe-area-inset-top: env(safe-area-inset-top, 0px);
    --safe-area-inset-right: env(safe-area-inset-right, 0px);
    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
@@ -19,6 +27,33 @@ body {
    display: flex;
    flex-flow: row-reverse wrap;
    box-sizing: initial; // box-sizing: border-box does not work with -webkit-fill-available. It could have spared a lot of calc statements, but I tried it, doesn't work. don't bother.
+}
+
+// navigation bar styling
+
+nav {
+   margin: 0 calc(var(--uom) * -1) 0 calc(var(--uom) * -1);
+   padding-top: calc(var(--uom) + var(--safe-area-inset-top));
+   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+   padding-bottom: var(--uom);
+   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+   height: calc(var(--uom) * 1.5);
+   white-space: nowrap;
+   overflow-x: auto;
+   overflow-y: hidden;
+   -webkit-overflow-scrolling: auto;
+   position: fixed;
+   top: 0;
+   > a {
+      margin: 0;
+      padding: 0 var(--uom);
+   }
+   > :first-child {
+      padding-left: 0;
+   }
+   > :last-child {
+      padding-right: 0;
+   }
 }
 
 // Horizn Symantic HTML styling
@@ -42,27 +77,61 @@ header {
    width: 100%;
    position: -webkit-sticky;
    position: sticky;
+   > nav {
+      position: fixed;
+      left: 0;
+      padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+      margin-left: 0;
+      margin-right: 0;
+      z-index: 2;
+   }
+   > picture > img {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      height: 100%;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 100vw;
+      object-fit: cover;
+   }
 }
 
 aside + header {
    width: calc(100vw - calc(var(--uom) * 4) - var(--safe-area-inset-left) - var(--max-aside));
    padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
+   > nav {
+      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
+      padding-right: var(--uom);
+   }
 }
 
 article + aside + header {
    width: calc(100vw - var(--max-article) - var(--max-aside) - calc(var(--uom) * 6) - var(--safe-area-inset-left));
    padding-right: calc(var(--uom) + calc(var(--uom) * 2) + var(--max-aside));
    margin-right: calc(calc(var(--max-aside) * -1) - calc(var(--uom) * 2));
+   > nav {
+      width: calc(100vw - var(--max-aside) - var(--max-article) - var(--safe-area-inset-left) - calc(var(--uom) * 6));
+      padding-right: var(--uom);
+   }
+   > picture > img {
+      max-width: calc(100vw - var(--max-article) - calc(var(--uom) * 2));
+   }
 }
 
 article ~ header {
    width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
    padding-right: var(--uom);
    margin-right: 0;
+   > nav {
+      width: calc(100vw - var(--max-article) - calc(var(--uom) * 4));
+      padding-right: var(--uom);
+   }
 }
 
-// Horizn Symantic HTML styling
+// Horizn Symantic HTML tyling
 // aside
 
 aside {
@@ -77,6 +146,13 @@ aside {
    padding-left: calc(var(--uom));
    z-index: 2;
    top: 0;
+   > nav {
+      z-index: 2;
+      margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
+      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+      padding-left: var(--uom);
+      width: calc(var(--max-aside));
+   }
 }
 
 article + aside {
@@ -89,6 +165,13 @@ article + aside {
    position: -webkit-sticky;
    position: sticky;
    top: 0;
+   > nav {
+      margin-right: calc(var(--uom) * -1);
+      padding-right: var(--uom);
+      z-index: 2;
+      width: calc(var(--max-aside));
+      position: fixed;
+   }
 }
 
 // Horizn Symantic HTML styling
@@ -103,122 +186,23 @@ article {
    padding-right: calc(var(--uom) + var(--safe-area-inset-right));
    padding-bottom: calc(var(--uom) + var(--safe-area-inset-bottom));
    padding-left: calc(var(--uom));
-}
-
-article img {
-   max-width: 100%;
-}
-
-// navigation bar styling
-
-nav {
-   margin: 0 calc(var(--uom) * -1) 0 calc(var(--uom) * -1);
-   padding-top: calc(var(--uom) + var(--safe-area-inset-top));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   padding-bottom: var(--uom);
-   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   height: calc(var(--uom) * 1.5);
-   white-space: nowrap;
-   overflow-x: auto;
-   overflow-y: hidden;
-   -webkit-overflow-scrolling: auto;
-   position: fixed;
-   top: 0;
-}
-
-nav > a {
-   margin: 0;
-   padding: 0 var(--uom);
-}
-
-nav > :first-child {
-   padding-left: 0;
-}
-
-nav > :last-child {
-   padding-right: 0;
-}
-
-// navigation bar styling
-// header > nav
-
-header > nav {
-   position: fixed;
-   left: 0;
-   padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-   margin-left: 0;
-   margin-right: 0;
-   z-index: 2;
-}
-
-aside + header > nav {
-   width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
-   padding-right: var(--uom);
-}
-
-article + aside + header > nav {
-   width: calc(100vw - var(--max-aside) - var(--max-article) - var(--safe-area-inset-left) - calc(var(--uom) * 6));
-   padding-right: var(--uom);
-}
-
-article ~ header > nav {
-   width: calc(100vw - var(--max-article) - calc(var(--uom) * 4));
-   padding-right: var(--uom);
-}
-
-// navigation bar styling
-// aside > nav
-
-aside > nav {
-   z-index: 2;
-   margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   padding-left: var(--uom);
-   width: calc(var(--max-aside));
-}
-
-article + aside > nav {
-   margin-right: calc(var(--uom) * -1);
-   padding-right: var(--uom);
-   z-index: 2;
-   width: calc(var(--max-aside));
-   position: fixed;
-}
-
-// navigation bar styling
-// article > nav
-
-article > nav {
-   position: sticky;
-   margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
-   padding-left: calc(var(--uom));
-   padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-   width: calc(var(--max-article) - var(--safe-area-inset-right));
-}
-
-// horizn header styles
-
-header > picture > img {
-   position: fixed;
-   top: 0px;
-   left: 0px;
-   z-index: -1;
-   height: 100%;
-   min-height: 100vh;
-   width: 100%;
-   max-width: 100vw;
-   object-fit: cover;
-}
-
-article + aside + header > picture > img {
-   max-width: calc(100vw - var(--max-article) - calc(var(--uom) * 2));
+   > nav {
+      position: sticky;
+      margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
+      padding-left: calc(var(--uom));
+      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+      width: calc(var(--max-article) - var(--safe-area-inset-right));
+   }
+   img {
+      max-width: 100%;
+   }
 }
 
 // Horizn Symantic HTML styling
 // the width of a tablet in landscape (and lower): hide the aside, override width of header to account for hidden aside
-@media (max-width: 18in) {
-   article + aside {
-      display: none;
+@media (max-width: @width-desktop) {
+   aside + header > nav {
+      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
    }
 
    article + aside + header,
@@ -227,21 +211,19 @@ article + aside + header > picture > img {
       width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
       padding-right: calc(var(--uom));
       margin-right: 0;
+      > nav {
+         width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+      }
    }
-
-   aside + header > nav {
-      width: calc(100vw - var(--max-aside) - calc(var(--uom) * 4));
-   }
-
-   article + aside + header > nav,
-   article ~ header > nav {
-      width: calc(100vw - var(--max-article) - calc(var(--uom) * 4) - var(--safe-area-inset-left));
+   
+   article + aside {
+      display: none;
    }
 }
 
 // Horizn Symantic HTML styling
 // hide the header when smaller than a desktop, and center the article (~< ipad tablet max portrait width 1024)
-@media (max-width: 10.5in) {
+@media (max-width: @width-tablet) {
    article ~ header {
       display: none;
    }
@@ -251,24 +233,22 @@ article + aside + header > picture > img {
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
       max-width: initial;
       max-height: initial;
-   }
-
-   article > nav {
-      position: relative;
-      margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
-      padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-      width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-   }
-
-   article img {
-      width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
-      margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
-      margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
-      max-width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
-      max-height: calc(101vh);
-      object-fit: cover;
-      object-position: 50% 50%;
+      > nav {
+         position: relative;
+         margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
+         padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+         padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+         width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+      }
+      img {
+         width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
+         margin-left: calc(calc(var(--uom) * -1) - var(--safe-area-inset-left));
+         margin-right: calc(calc(var(--uom) * -1) - var(--safe-area-inset-right));
+         max-width: calc(100% + calc(var(--uom) * 2) + var(--safe-area-inset-left) + var(--safe-area-inset-right));
+         max-height: calc(101vh);
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
    }
 }
 
@@ -276,7 +256,7 @@ article + aside + header > picture > img {
 //    mobile portrait gets stacked (header/aside).
 //    mobile landscape (on a very small screen) gets stacked too,
 //    to achieve this we: unset position sticky and change the flex-flow
-@media (orientation: portrait) and (max-width: 7.5in), (orientation: landscape) and (max-width: 8.5in) {
+@media (orientation: portrait) and (max-width: @width-portrait-mobile), (orientation: landscape) and (max-width: @width-landscape-mobile) {
    body {
       flex-flow: row-reverse wrap-reverse;
       -webkit-text-size-adjust: none;
@@ -289,6 +269,9 @@ article + aside + header > picture > img {
       min-height: -webkit-fill-available;
       min-height: fill-available;
       max-height: calc(100vh - calc(var(--uom) * 5.5) - var(--safe-area-inset-top));
+      > picture > img {
+         position: fixed;
+      }
    }
 
    aside + header,
@@ -298,18 +281,12 @@ article + aside + header > picture > img {
       margin-right: 0;
       padding-right: calc(var(--uom) + var(--safe-area-inset-right));
       padding-bottom: var(--uom);
-   }
-
-   aside + header > nav,
-   header > nav {
-      position: absolute;
-      width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-      padding-left: calc(var(--uom) + var(--safe-area-inset-left))
-   }
-
-   header > picture > img {
-      position: fixed;
+      > nav {
+         position: absolute;
+         width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+         padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+         padding-left: calc(var(--uom) + var(--safe-area-inset-left))
+      }
    }
 
    aside {
@@ -318,16 +295,15 @@ article + aside + header > picture > img {
       padding-left: calc(var(--uom) + var(--safe-area-inset-left));
       max-height: initial;
       position: initial;
-   }
-
-   aside > nav {
-      width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
-      padding-left: calc(var(--uom) + var(--safe-area-inset-left));
-      padding-right: calc(var(--uom) + var(--safe-area-inset-right));
-      margin-left: calc(calc(var(--safe-area-inset-left) * -1) - var(--uom));
-      position: -webkit-sticky;
-      position: sticky;
-      padding-top: var(--uom);
+      > nav {
+         width: calc(100vw - calc(var(--uom) * 2) - var(--safe-area-inset-left) - var(--safe-area-inset-right));
+         padding-left: calc(var(--uom) + var(--safe-area-inset-left));
+         padding-right: calc(var(--uom) + var(--safe-area-inset-right));
+         margin-left: calc(calc(var(--safe-area-inset-left) * -1) - var(--uom));
+         position: -webkit-sticky;
+         position: sticky;
+         padding-top: var(--uom);
+      }
    }
 
    article > nav {
