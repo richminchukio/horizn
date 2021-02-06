@@ -1,4 +1,4 @@
-# Horizn (3.0.1)
+# Horizn (3.0.2)
 
 ## What is Horizn?
 
