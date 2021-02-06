@@ -8,6 +8,7 @@
       "less": "for file in src/*.less; do lessc $file dist/css/$(basename $file | sed -e s/less/css/g); done;",
       "min": "for file in dist/css/*.css; do cleancss --output dist/css/$(basename $file | sed -e s/\\.css/\\.min\\.css/g) $file; done;",
       "build": "npm-run-all clean less min",
+      "prepare": "npm-run-all build",
       "publish-public": "npm run build; mkdir -p ../../public/horizn; cp -r ./dist ../../public/horizn",
       "publish-wwwroot": "npm run build; mkdir -p ../../wwwroot/horizn; cp -r ./dist ../../wwwroot/horizn",
       "docker": "npm run build; set -e; docker build --no-cache --tag horizn .; docker run --detach --rm --name horizn --publish 3000:3000 horizn; echo 'horizn running.. (<return> to stop)'; echo $(read -s) 'stopping..'; echo $(docker stop horizn --time 0) stopped;",
