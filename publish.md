@@ -14,7 +14,6 @@ git commit
 npm version prepatch
 git push --follow-tags
 npm login
-npm run build
 npm publish ./ --tag beta --dry-run
 npm publish ./ --tag beta
 # Test:
@@ -23,7 +22,6 @@ npm run docker
 npm version patch
 git push --follow-tags
 npm login
-npm run build
 npm publish ./ --tag latest --dry-run
 npm publish ./ --tag latest
 ```
