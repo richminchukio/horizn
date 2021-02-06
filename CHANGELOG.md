@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.1.0] - 2021-02-06
+### Added
+- Added less variable support for all css variables. You can now override all hardcoded mediaquery widths and base styles when building less files manually. IE: `lessc --modify-var='uom=.9rem' --modify-var='width-desktop=16in' src/horizn.less dist/css/horizn.css`
+
+### Changed
+- Cleaned up many less files to take advantage of nesting. This is important because horizn uses a lot of combinations of sibling selectors. The pattern is much clearer now. 
+
 ## [v3.0.2] - 2021-02-05
 ### Changed
 - fix for variable unit of measures.
